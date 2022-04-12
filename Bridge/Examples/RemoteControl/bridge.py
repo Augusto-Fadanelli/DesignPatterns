@@ -16,7 +16,7 @@ class Device(ABC):
         pass
 
     @abstractmethod
-    def setPower(self, power_status):
+    def setPower(self, power_status: bool):
         pass
 
     @abstractmethod
@@ -24,7 +24,7 @@ class Device(ABC):
         pass
 
     @abstractmethod
-    def setVolume(self):
+    def setVolume(self, new_volume: int):
         pass
 
     @abstractmethod

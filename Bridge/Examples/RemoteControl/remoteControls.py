@@ -1,9 +1,17 @@
 from bridge import *
 
 class BasicRemoteControl(RemoteControl):
-    def __init__(self, device: Device):
-        self.device = device
+    '''
+    Docstring
+    Controle remoto genérico com volume
+    '''
+    def volumeUp(self):
+        if self.device.getVolume() <= 95:
+            self.device.setVolume(self.device.getVolume() + 5)
+
+    def volumeDown(self):
+        if self.device.getVolume() >= 5:
+            self.device.setVolume(self.device.getVolume() - 5)
 
 class TouchControl(RemoteControl):
-    def __init__(self, device: Device):
-        self.device = device
+    pass

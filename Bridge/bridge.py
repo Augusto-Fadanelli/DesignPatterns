@@ -49,5 +49,5 @@ class ConcreteImplementorB(Implementor):
 
 if __name__ == "__main__":
     imp = ConcreteImplementorA()
-    abst = Abstraction(imp)
+    abst = RefinedAbstractionA(imp)
 

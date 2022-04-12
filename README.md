@@ -2,7 +2,7 @@
   * 1.0 Singleton
   * 2.0 Bridge
 
-# Implementações conjuntas
+### Implementações conjuntas
   * 1.2 Implementação: Singleton + Bridge
 
 # Padrões para o desenvolvimento
@@ -11,7 +11,7 @@
   * As implementações conjuntas serão armazenados em `Implementations` em pastas com a sintaxe: `número do design pattern utilizado`.`número do outro design pattern utilizado` `Nome da implementação`
 
   * Nomes de classes sempre começam com letra maiúscula
-    * Se houver mais de uma palavra, a próxima plavra também começa com letra maiúscula
+    * Se houver mais de uma palavra, a próxima palavra também começa com letra maiúscula
       * Exemplo: `ElefanteRosaVoador`
       
   * Nomes de métodos e funções sempre começam com letra minúscula

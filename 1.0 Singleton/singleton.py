@@ -1,4 +1,8 @@
 class Singleton():
+    '''
+    Docstring:
+    Modelo do design pattern singleton.
+    '''
     __instance = None
 
     @staticmethod

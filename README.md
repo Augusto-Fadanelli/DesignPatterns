@@ -3,7 +3,7 @@
   * 2.0 Bridge
 
 ### Implementações conjuntas
-  * 1.2 Implementação: Singleton + Bridge
+  * 1.2 Steam
 
 # Padrões para o desenvolvimento
   * Os design patterns serão armazenados em pastas com a sintaxe: `número na ordem em que foi pedido pelo professor`.0 `Nome do  padrão`
@@ -13,15 +13,15 @@
   * Nomes de classes sempre começam com letra maiúscula
     * Se houver mais de uma palavra, a próxima palavra também começa com letra maiúscula
       * Exemplo: `ElefanteRosaVoador`
-      
+
   * Nomes de métodos e funções sempre começam com letra minúscula
     * Se houver mais de uma palavra, as palavras seguintes começam com letra maiúscula
     * Exemplo: `elefanteRosaVoador`
-  
+
   * Nomes de variáveis sempre começam com letra minúscula
     * Se houver mais de uma palavra, serão separadas por `_` e começarão com letra minúscula
     * Exemplo: `elefante_rosa_voador`
-  
+
   * Classes não autodescritivas ou complexas sempre devem ter uma docstring no início explicando a finalidade, informações pertinentes e o funcionamento da mesma
     ````
     class ElefanteRosaVoador
@@ -41,9 +41,9 @@
     ````
     class Mae():
         def setInfo(self, nome: str, idade: int):
-            self.nome = nome            
+            self.nome = nome
             self.idade = idade
-    
+
     class Filha(Mae):
         def setInfo(self, nome, idade, cpf: int)
             self.nome = nome
@@ -56,9 +56,9 @@
     @abstractmethod
     def getElefanteRosaVoador(self) -> Elefante:
         pass
-    
+
     @abstractmethod
     def getNameElefante(self) -> str:
         pass
-    ```` 
+    ````
 

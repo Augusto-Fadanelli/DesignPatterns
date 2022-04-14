@@ -1,9 +1,11 @@
+from bridge import Product
+
 class Login():
     __instance = None
 
     @staticmethod
     def getInstance():
-        if Login.__instance == None
+        if Login.__instance == None:
             Login('None', 'None', 'None', 'None')
         return Login.__instance
 
@@ -22,7 +24,7 @@ class Login():
         return self.name
 
     def checkPassword(self, passwd:str):
-        if self.password == passwd
+        if self.password == passwd:
             return True
         return False
 
@@ -56,9 +58,13 @@ class Cart():
         print(f'Total price: {self.amount}')
         op = input('Purchase? (y/n)')
         if op == 'y':
+            aux = self.items
             self.items.clear()
             self.amount = 0
             print('Done.')
+            return aux
+        print('Canceled.')
+        return
 
 
 

@@ -1,11 +1,10 @@
 from bridge import Product
 
 class Game(Product):
-    def __init__(self, name, description, price, discount, size, developer:str, minimum_requirements:list, recommended_requirements:list, genre:list, platforms='all'):
+    def __init__(self, name, description, price, size, developer:str, minimum_requirements:list, recommended_requirements:list, genre:list, platforms:list):
         self.name = name
         self.description = description
         self.price = price
-        self.discount = discount
         self.size = size
         self.developer = developer
         self.minimum_requirements = minimum_requirements
@@ -26,11 +25,10 @@ class Game(Product):
         return self.price
 
 class Software(Product):
-    def __init__(self, name, description, price, discount, size, developer:str, minimum_requirements:list, recommended_requirements:list, platforms='all'):
+    def __init__(self, name, description, price, size, developer:str, minimum_requirements:list, recommended_requirements:list, platforms:list):
         self.name = name
         self.description = description
         self.price = price
-        self.discount = discount
         self.size = size
         self.developer = developer
         self.minimum_requirements = minimum_requirements
@@ -50,11 +48,10 @@ class Software(Product):
         return self.price
 
 class Soundtrack(Product):
-    def __init__(self, name, description, price, discount, size, track_listing:list, artist:str, genre:str, platforms='all'):
+    def __init__(self, name, description, price, size, track_listing:list, artist:str, genre:str, platforms:list):
         self.name = name
         self.description = description
         self.price = price
-        self.discount = discount
         self.size = size
         self.track_listing = track_listing
         self.artist = artist

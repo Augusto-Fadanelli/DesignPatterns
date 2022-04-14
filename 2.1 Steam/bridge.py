@@ -6,7 +6,7 @@ class Product(ABC):
     Interface Implementor
     '''
     @abstractmethod
-    def __init__(self, name:str, description:str, price:float, discount:float, size:int, platforms='all'):
+    def __init__(self, name:str, description:str, price:float, size:int, platforms='all'): #size in MB
         pass
 
     @abstractmethod
@@ -31,10 +31,6 @@ class Platform(ABC):
         if self.external_memory < self.implementation.size:
             return False
         return True
-
-    @abstractmethod
-    def checkPlatform(self) -> bool:
-        pass
 
     @abstractmethod
     def toPlay(self):

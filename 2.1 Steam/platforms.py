@@ -1,18 +1,19 @@
 from bridge import *
 
 class PC(Platform):
-    def __init__(self, implementation:Product, external_memory:int, operational_system:str, favorite=False):
+    def __init__(self, implementation:Product, external_memory:int, operational_system:str):
         self.implementation = implementation
         self.external_memory = external_memory
         self.operational_system = operational_system
-        self.favorite = favorite
-
-    def checkPlatform(self):
-        for i in self.implementation.platforms:
-            print(i)
-            # Implementar. se i == 'all' return True, else if i == self.operational_system return True, else return False
+        self.favorite = False
 
     def toPlay(self):
+        def checkPlatform():
+            for i in self.implementation.platforms:
+                if i == 'all' or i == self.operational_system:
+                    return True
+            return False
+
         if checkPlatform():
             print(f'Playing {self.implementation.name} in Desktop {self.operational_system}')
         else:
@@ -22,19 +23,21 @@ class PC(Platform):
         self.favorite = not self.favorite
 
 class Playstation(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str, achievements=False, psn_sync=False):
+    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
         self.version = version
-        self.achievements = achievements
-        self.psn_sync = psn_sync
-
-    # Implementar
-    def checkPlatform(self):
-        pass
+        self.achievements = False
+        self.psn_sync = False
 
     def toPlay(self):
+        def checkPlatform():
+            for i in self.implementation.platforms:
+                if i == 'all' or i == self.model:
+                    return True
+            return False
+
         if checkPlatform():
             print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
         else:
@@ -47,20 +50,23 @@ class Playstation(Platform):
         self.psn_sync = True
 
 class Xbox(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str, achievements=False, gamepass_sync=False):
+    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
         self.version = version
-        self.achievements = achievements
-        self.gamepass_sync = gamepass_sync
-
-    def checkPlatform(self):
-        pass
+        self.achievements = False
+        self.gamepass_sync = False
 
     def toPlay(self):
+        def checkPlatform():
+            for i in self.implementation.platforms:
+                if i == 'all' or i == self.model:
+                    return True
+            return False
+
         if checkPlatform():
-            print(f'Playing {self.implementation.name} in {self.model} v.{version}')
+            print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
         else:
             print('Error! Unsupported platform.')
 
@@ -71,18 +77,21 @@ class Xbox(Platform):
         self.gamepass_sync = True
 
 class Nintendo(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str, achievements=False, cloud_save=False):
+    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
         self.version = version
-        self.achievements = achievements
-        self.cloud_save = cloud_save
-
-    def checkPlatform(self):
-        pass
+        self.achievements = False
+        self.cloud_save = False
 
     def toPlay(self):
+        def checkPlatform():
+            for i in self.implementation.platforms:
+                if i == 'all' or i == self.model:
+                    return True
+            return False
+
         if checkPlatform():
             print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
         else:
@@ -95,18 +104,21 @@ class Nintendo(Platform):
         self.cloud_save = not self.cloud_save
 
 class SteamDeck(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str, achievements=False, favorite=False):
+    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
         self.version = version
-        self.achievements = achievements
-        self.favorite = favorite
-
-    def checkPlatform(self):
-        pass
+        self.achievements = False
+        self.favorite = False
 
     def toPlay(self):
+        def checkPlatform():
+            for i in self.implementation.platforms:
+                if i == 'all' or i == self.model:
+                    return True
+            return False
+
         if checkPlatform():
             print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
         else:

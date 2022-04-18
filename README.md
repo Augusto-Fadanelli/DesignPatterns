@@ -9,4 +9,4 @@
   * 3.4 (Adapter + Memento)
 
 ### Other
-* [Standards for contributors (Portuguese)]()
+* [Standards for contributors (Portuguese)](https://github.com/Augusto-Fadanelli/DesignPatterns/blob/main/Standards_for_contributors%20_pt-BR.md)

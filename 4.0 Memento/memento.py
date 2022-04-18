@@ -42,7 +42,7 @@ class Originator():
         return ConcreteMemento(self._state)
 
     def restore(self, memento: Memento):
-        self._state = memento.getstate()
+        self._state = memento.getState()
         print(f'Originator: State has changed to: {self._state}')
 
 class Caretaker():
@@ -71,8 +71,11 @@ class Caretaker():
             print(memento.getName())
 
 if __name__ == "__main__":
-    originator = Originator("Super-duper-super-puper-super.")
+    originator = Originator("In a hole in the ground there lived a hobbit.")
     caretaker = Caretaker(originator)
+
+    caretaker.backup()
+    originator.operation()
 
     caretaker.backup()
     originator.operation()
@@ -91,3 +94,6 @@ if __name__ == "__main__":
 
     print("\nClient: rollback again!\n")
     caretaker.undo()
+
+    print()
+    caretaker.show_history()

@@ -4,42 +4,25 @@ import tkinter as tk
 from tkinter import ttk, Text
 from ttkthemes import ThemedTk
 
-#class WindowStyles(ThemedTk):
-
 class ConfigWindow(tk.Toplevel):
     def __init__(self, parent):
-        #ThemedTk.__init__(self, fonts=True, themebg=True)
-        #self.set_theme('breeze')
         super().__init__(parent)
-        self.transient()
         self.title('Notepad - Config')
         self.geometry('250x150')
 
-        font_label = ttk.Label(text='Font:')
-        size_label = ttk.Label(text='Size:')
+        self.font_label = ttk.Label(self, text='Font:')
+        self.size_label = ttk.Label(self, text='Size:')
 
-        font_combo = ttk.Combobox(values=['Arial', 'Times', 'Hack'])
-        size_combo = ttk.Combobox(values=['8', '10', '12', '14', '16', '18', '20'])
+        self.font_combo = ttk.Combobox(self, values=['Arial', 'Times', 'Hack'])
+        self.size_combo = ttk.Combobox(self, values=['8', '10', '12', '14', '16', '18', '20'])
+        self.font_combo.set('Arial')
+        self.size_combo.set('12')
 
         # Show
-        font_label.pack(padx=10, pady=5)
-        font_combo.pack(padx=10, pady=5)
-        size_label.pack(padx=10, pady=5)
-        size_combo.pack(padx=10, pady=5)
-
-'''
-class Teste(ThemedTk):
-    def __init__(self):
-        ThemedTk.__init__(self, fonts=True, themebg=True)
-        self.set_theme('breeze')
-        self.title('Notepad')
-        self.geometry('500x500')
-
-        ttk.Label(text='Teste').pack()
-
-        config = ConfigWindow(self)
-        config.grab_set()
-'''
+        self.font_label.pack(padx=10, pady=5)
+        self.font_combo.pack(padx=10, pady=5)
+        self.size_label.pack(padx=10, pady=5)
+        self.size_combo.pack(padx=10, pady=5)
 
 class Window(ThemedTk):
     def __init__(self):
@@ -74,7 +57,7 @@ class Window(ThemedTk):
         about.grid(row=0, column=2, padx=10, pady=5)
 
     def __general(self):
-        textbox = Text(self.__frame_general, height=10, width=50, font=(None, 15), bg='#bac3cc')
+        textbox = Text(self.__frame_general, height=25, width=70, font=('Arial', 12), bg='#bac3cc')
 
         # Show
         self.__frame_toolbar.pack()
@@ -84,6 +67,3 @@ class Window(ThemedTk):
 if __name__ == '__main__':
     window = Window()
     window.mainloop()
-
-    #t = Teste()
-    #t.mainloop()

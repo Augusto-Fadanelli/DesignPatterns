@@ -13,7 +13,7 @@ class Portal():
         self.radius = 0
 
     def setPos(self, x, y):
-        if len(self.pos_x) > 3:
+        if len(self.pos_x) > 2:
             del self.pos_x[0]
             del self.pos_y[0]
 

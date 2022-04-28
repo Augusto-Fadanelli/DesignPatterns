@@ -7,6 +7,8 @@ class Caretaker():
         self._originator = originator
 
     def backup(self, snakePosX, snakePosY):
+        if len(self._mementos) > 2:
+            del self._mementos[0]
         print("\nCaretaker: Saving Originator's state...")
         self._mementos.append(self._originator.save(snakePosX, snakePosY))
 

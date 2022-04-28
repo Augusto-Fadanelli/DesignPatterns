@@ -77,13 +77,11 @@ class PlayGame():
                             self.snake.setControl(0, self.snake.getSpeed())
                     # Save/Load
                     if event.key == K_k:
-                        #self.save(self.snake.getPosX(), self.snake.getPosY())
-                        self.caretaker.backup(self.snake.getPosX(), self.snake.getPosY())
                         self.portal.setPos(self.snake.getPosX(), self.snake.getPosY())
+                        self.caretaker.backup(self.snake.getPosX(), self.snake.getPosY())
                     if event.key == K_l:
-                     #   self.restore()
-                        self.caretaker.undo()
                         self.portal.closePortal()
+                        self.caretaker.undo()
 
             self.snake.setPos(
                 self.snake.getPosX() + self.snake.getControlX(),

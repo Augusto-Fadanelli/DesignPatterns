@@ -3,117 +3,15 @@ from pygame.locals import *
 from sys import exit
 from random import randint
 
+from cmemento import *
+from obj import *
+from mcaretaker import *
+
+# Variáveis globais
 g_snake_size = 30
 
-class Food():
-    def __init__(self):
-        self.eat_song = pygame.mixer.Sound('eat_song.wav')
-        self.pos_x = 0
-        self.pos_y = 0
-        self.radius = 0
-
-    def setPos(self, x, y):
-        self.pos_x = x
-        self.pos_y = y
-
-    def getPosX(self):
-        return self.pos_x
-
-    def getPosY(self):
-        return self.pos_y
-
-    def setRadius(self, r):
-        self.radius = r
-
-    def getRadius(self):
-        return self.radius
-
-    def playSong(self):
-        self.eat_song.play()
-
-class Snake():
-    def __init__(self):
-        self.rect_size = 0  # Tamanho de cada quadrado que compõe a snake
-        self.snake_x = 0
-        self.snake_y = 0
-        self.snake_speed = 0
-        self.control_x = 0
-        self.control_y = 0
-        self.snake_size = g_snake_size # Tamanho inicial da snake
-        self.is_dead = False
-
-        self.snake_list = []
-        self.head_list = []
-
-    def setIsDead(self, dead:bool):
-        self.is_dead = dead
-
-    def getIsDead(self):
-        return self.is_dead
-
-    def setRectSize(self, size):
-        self.rect_size = size
-
-    def getRectSize(self):
-        return self.rect_size
-
-    def setSize(self, size):
-        self.snake_size = size
-
-    def getSize(self):
-        return self.snake_size
-
-    def setSnakeList(self, snake_list:list):
-        self.snake_list = snake_list
-
-    def addToSnakeList(self, a):
-        self.snake_list.append(a)
-
-    def setHeadList(self, head_list:list):
-        self.head_list = head_list
-
-    def getHeadList(self):
-        return self.head_list
-
-    def setPos(self, x, y):
-        self.snake_x = x
-        self.snake_y = y
-
-    def getPosX(self):
-        return self.snake_x
-
-    def getPosY(self):
-        return self.snake_y
-
-    def setSpeed(self, speed):
-        self.snake_speed = speed
-
-    def getSpeed(self):
-        return self.snake_speed
-
-    def setControl(self, x, y):
-        self.control_x = x
-        self.control_y = y
-
-    def getControlX(self):
-        return self.control_x
-
-    def getControlY(self):
-        return self.control_y
-
-    def checkCollision(self):
-        if self.snake_list.count(self.head_list) > 1:
-            return True
-        return False
-
-    def growthSnake(self, screen):
-        if len(self.snake_list) > self.snake_size:
-            del self.snake_list[0]
-        for pos in self.snake_list:
-            pygame.draw.rect(screen, (0,255,0), (pos[0], pos[1], self.rect_size, self.rect_size))
-
 class PlayGame():
-    def __init__(self, snake:Snake, food:Food):
+    def __init__(self, snake:Snake, food:Food, caretaker:Caretaker):
         self.screen_width = 640
         self.screen_height = 480
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
@@ -131,8 +29,11 @@ class PlayGame():
         self.food = food
         self.food.setRadius(self.screen_width // 64)
 
+        self.caretaker = caretaker
+
         self.__reloadGame()
-        self.__conf()
+        self.snake.originator_start()
+        pygame.display.set_caption('Snake')
         self.__loop()
 
     def __reloadGame(self):
@@ -146,11 +47,6 @@ class PlayGame():
         self.snake.setSnakeList([]) # Zera a lista
         self.snake.setHeadList([]) # Zera a lista
         self.snake.setIsDead(False)
-
-    # Configurações da janela que não estão em loop
-    def __conf(self):
-        #pygame.init()
-        pygame.display.set_caption('Snake')
 
     def __loop(self):
         while True:
@@ -176,6 +72,13 @@ class PlayGame():
                     if event.key == K_s:
                         if not self.snake.getControlY() == -self.snake.getSpeed(): # Impede a snake de inverter a direção
                             self.snake.setControl(0, self.snake.getSpeed())
+                    # Save/Load
+                    if event.key == K_k:
+                        #self.save(self.snake.getPosX(), self.snake.getPosY())
+                        self.caretaker.backup(self.snake.getPosX(), self.snake.getPosY())
+                    if event.key == K_l:
+                     #   self.restore()
+                        self.caretaker.undo()
 
             self.snake.setPos(
                 self.snake.getPosX() + self.snake.getControlX(),
@@ -185,7 +88,7 @@ class PlayGame():
             # Snake Shape
             snake_head = pygame.draw.rect(self.screen, (0,255,0), (
                 self.snake.getPosX(), self.snake.getPosY(),
-                self.snake.getRectSize(), self.snake.getRectSize() # !!!!!!!!!!!!!!!!!
+                self.snake.getRectSize(), self.snake.getRectSize()
             ))
 
             # Food Shape
@@ -256,4 +159,7 @@ if __name__ == '__main__':
     pygame.init()
     player1 = Snake()
     food = Food()
-    play = PlayGame(player1, food)
+
+    caretaker = Caretaker(player1)
+    play = PlayGame(player1, food, caretaker) # Originator
+

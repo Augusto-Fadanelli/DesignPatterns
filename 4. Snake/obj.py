@@ -6,6 +6,41 @@ from cmemento import *
 # Variáveis globais
 g_snake_size = 30
 
+class Portal():
+    def __init__(self):
+        self.pos_x = []
+        self.pos_y = []
+        self.radius = 0
+
+    def setPos(self, x, y):
+        if len(self.pos_x) > 3:
+            del self.pos_x[0]
+            del self.pos_y[0]
+
+        self.pos_x.append(x)
+        self.pos_y.append(y)
+
+    def getPosX(self, i):
+        if len(self.pos_x) > i:
+            return self.pos_x[i]
+        return -100
+
+    def getPosY(self, i):
+        if len(self.pos_y) > i:
+            return self.pos_y[i]
+        return -100
+
+    def setRadius(self, r):
+        self.radius = r
+
+    def getRadius(self):
+        return self.radius
+
+    def closePortal(self):
+        if len(self.pos_x) > 0:
+            del self.pos_x[len(self.pos_x)-1]
+            del self.pos_y[len(self.pos_y)-1]
+
 class Food():
     def __init__(self):
         self.eat_sound = pygame.mixer.Sound('eat_sound.wav')

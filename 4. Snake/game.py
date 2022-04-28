@@ -11,7 +11,7 @@ from mcaretaker import *
 g_snake_size = 30
 
 class PlayGame():
-    def __init__(self, snake:Snake, food:Food, caretaker:Caretaker):
+    def __init__(self, snake:Snake, food:Food, portal:Portal, caretaker:Caretaker):
         self.screen_width = 640
         self.screen_height = 480
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
@@ -25,6 +25,9 @@ class PlayGame():
         #self.score = 0
         self.font_score = pygame.font.SysFont('Arial', 40, True, True)
         self.font_game_over = pygame.font.SysFont('Arial', 20, True, True)
+
+        self.portal = portal
+        self.portal.setRadius(self.screen_width // 40)
 
         self.food = food
         self.food.setRadius(self.screen_width // 64)
@@ -76,9 +79,11 @@ class PlayGame():
                     if event.key == K_k:
                         #self.save(self.snake.getPosX(), self.snake.getPosY())
                         self.caretaker.backup(self.snake.getPosX(), self.snake.getPosY())
+                        self.portal.setPos(self.snake.getPosX(), self.snake.getPosY())
                     if event.key == K_l:
                      #   self.restore()
                         self.caretaker.undo()
+                        self.portal.closePortal()
 
             self.snake.setPos(
                 self.snake.getPosX() + self.snake.getControlX(),
@@ -90,6 +95,11 @@ class PlayGame():
                 self.snake.getPosX(), self.snake.getPosY(),
                 self.snake.getRectSize(), self.snake.getRectSize()
             ))
+
+            # Portal Shape
+            portal = pygame.draw.circle(self.screen, (0,0,255), (self.portal.getPosX(0), self.portal.getPosY(0)), self.portal.getRadius())
+            portal = pygame.draw.circle(self.screen, (0,0,255), (self.portal.getPosX(1), self.portal.getPosY(1)), self.portal.getRadius())
+            portal = pygame.draw.circle(self.screen, (0,0,255), (self.portal.getPosX(2), self.portal.getPosY(2)), self.portal.getRadius())
 
             # Food Shape
             food = pygame.draw.circle(self.screen, (255,0,0), (self.food.getPosX(), self.food.getPosY()), self.food.getRadius())
@@ -159,7 +169,8 @@ if __name__ == '__main__':
     pygame.init()
     player1 = Snake()
     food = Food()
+    portal = Portal()
 
     caretaker = Caretaker(player1)
-    play = PlayGame(player1, food, caretaker) # Originator
+    play = PlayGame(player1, food, portal, caretaker) # Originator
 

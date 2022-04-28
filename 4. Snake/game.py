@@ -40,9 +40,16 @@ class Snake():
         self.control_x = 0
         self.control_y = 0
         self.snake_size = g_snake_size # Tamanho inicial da snake
+        self.is_dead = False
 
         self.snake_list = []
         self.head_list = []
+
+    def setIsDead(self, dead:bool):
+        self.is_dead = dead
+
+    def getIsDead(self):
+        return self.is_dead
 
     def setRectSize(self, size):
         self.rect_size = size
@@ -69,8 +76,8 @@ class Snake():
         return self.head_list
 
     def setPos(self, x, y):
-        self.snake_x = x - self.rect_size // 2
-        self.snake_y = y - self.rect_size // 2
+        self.snake_x = x
+        self.snake_y = y
 
     def getPosX(self):
         return self.snake_x
@@ -129,7 +136,7 @@ class PlayGame():
         self.__loop()
 
     def __reloadGame(self):
-        self.snake.setPos(self.screen_width // 2, self.screen_height // 2)
+        self.snake.setPos(self.screen_width // 2 - self.snake.getRectSize() // 2, self.screen_height // 2 - self.snake.getRectSize() // 2)
         self.snake.setControl(self.snake.getSpeed(), 0)
         self.score = 0
         self.food.setPos(randint(self.food.getRadius() * 2, self.screen_width - self.food.getRadius() * 2),
@@ -138,6 +145,7 @@ class PlayGame():
         self.snake.setSize(g_snake_size)
         self.snake.setSnakeList([]) # Zera a lista
         self.snake.setHeadList([]) # Zera a lista
+        self.snake.setIsDead(False)
 
     # Configurações da janela que não estão em loop
     def __conf(self):
@@ -177,7 +185,7 @@ class PlayGame():
             # Snake Shape
             snake_head = pygame.draw.rect(self.screen, (0,255,0), (
                 self.snake.getPosX(), self.snake.getPosY(),
-                self.snake.getSize(), self.snake.getSize()
+                self.snake.getRectSize(), self.snake.getRectSize() # !!!!!!!!!!!!!!!!!
             ))
 
             # Food Shape
@@ -188,8 +196,8 @@ class PlayGame():
                 self.food.setPos(randint(self.food.getRadius() * 2, self.screen_width - self.food.getRadius() * 2),
                                  randint(self.food.getRadius()*2, self.screen_height - self.food.getRadius()*2)
                                  )
-            self.score += 1
-            self.food.playSong()
+                self.score += 1
+                self.food.playSong()
 
             self.snake.setHeadList([self.snake.getPosX(), self.snake.getPosY()])
             self.snake.addToSnakeList(self.snake.getHeadList())
@@ -200,8 +208,9 @@ class PlayGame():
                 formatted_game_over = self.font_game_over.render(message_game_over, True, (0,0,0))
                 pos_message_game_over = formatted_game_over.get_rect()
 
-                while True:
-                    self.screen.fill(255,255,255)
+                self.snake.setIsDead(True)
+                while self.snake.getIsDead():
+                    self.screen.fill((255,255,255))
                     for event in pygame.event.get():
                         if event.type == QUIT:
                             pygame.quit()
@@ -210,9 +219,9 @@ class PlayGame():
                             if event.key == K_r:
                                 self.__reloadGame()
 
-                pos_message_game_over.center = (self.screen_width//2, self.screen_height//2)
-                self.screen.blit(formatted_game_over, pos_message_game_over)
-                pygame.display.update()
+                    pos_message_game_over.center = (self.screen_width//2, self.screen_height//2)
+                    self.screen.blit(formatted_game_over, pos_message_game_over)
+                    pygame.display.update()
 
             # Se a snake sair da tela
             if self.snake.getPosX() < 0:

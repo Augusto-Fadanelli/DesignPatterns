@@ -48,4 +48,4 @@ class Composite(Component):
         for child in self._children:
             results.append(child.operation())
 
-        return f"B:{name}({' + '.join(results)})"
+        return f"\n\tB:{name}({' + '.join(results)})"

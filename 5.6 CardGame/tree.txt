@@ -1,0 +1,98 @@
+### CLASSES COMUNS ###
+
+classe Human (Humano):
+	subclasse Knight (Cavaleiro):	//Tem resistencia a dano magicos
+		Leaf: Templar (Templario) - Armas: espada e escudo
+
+		Leaf: Paladin (Paladino) - Armas: espada, escudo e fé kkk
+
+	subclasse Assassin (Assassino):  //Tem resistencia a porções de dano
+		Leaf: Ninja - Armas: Katana
+
+		Leaf: Stealth Killer (Assassino Furtivo) - Armas: Adaga
+
+	Leaf: Fighter (Lutador):	//Tem resistencia a danos fisicos
+
+classe Heavenly (Celestes):
+	subclasse Magician (Mago):	//Magia
+		Leaf: DarkMagician (Mago sombrio)
+
+		Leaf: LightMagician (Mago da luz)
+
+	subclasse Sorcerer (Feiticeiro):	//Magia
+		Leaf: DarkSorcerer (Feiticeiro sombrio)
+
+		Leaf: LightSorcerer (Feiticeiros divinos)
+
+	subclasse Elf (Elfo):
+		Leaf: ShapeshifterElf (Elfo Metamorfo) - Armas: Cajados
+
+		Leaf: SummonerElf (Elfo invocador) - Armas: Magia
+
+		Leaf: elfArcher (Elfo arqueiro) - Armas: Arco e flexa
+
+classe Support (Suporte):
+	subclasse Divine (Sacerdote):
+	    leaf: Cleric (clérigo) - Armas: Adaga e magia:
+	    subclasse Druid (Drúida):
+	        leaf: Ninfa - Armas: Foice e cajado
+
+
+
+
+### CLASSES ESPECIAIS ###
+
+classe Potion (Druidas, Ninja):	//O druida pode usar essas porções em adversarios e inimigos
+	Leaf: Cure - Regenera 15% da vida e tem duração de 2 partidas
+
+	Leaf: Weakness (fraqueza) - Dura 1 partidas e imposibilida o adversario de usar ataque especial
+
+	Leaf: Strength (força) - Aumento de força para quem usar com
+
+	Leaf: Poison (Ninja) - Afeta o inimigo por 2 partidas e diminui 10% da vida
+
+
+classe Spell(Mago, feiticeiro, clerigo):
+    Leaf: FireRain (Usado por magos e Feiticeiros sombrios)
+
+	Leaf: TrailOfDead (Trilha dos mortos) (Usado pelos feiticeiros sombrios)
+
+	subclasse HealingSpell:
+		Leaf: Esculapio (Magia de cura usado pelos clerigos) - Regenera 20% de vida e dura 3 partidas
+
+		Leaf: NightHerbs (Ervas da Noite) (Magia de cura usado pelos magos e feiticeiros) - Regenera 10% da vida e dura 1 partida(so pode ser usada em si mesmo)
+
+classe Trap:
+    Leaf: MeteorRain (Usado por magos e Feiticeiros sombrios)
+
+	Leaf: Necromancy (Usado pelos feiticeiros sombrios)
+
+	Leaf: AlternateReality - Muda o terreno para outro aleatório (Usado pelos feiticeiros)
+
+	Leaf: Madness - Faz com que seu adversario fique mate seus alidos(Magia conjurada apenas por magos)
+
+	subclasse Terrestrial:
+		Leaf: Thorns (Espinhos) - Armadinha feita por druidas na floresta
+
+		Leaf: LightStatue - Atira uma luz capaz de cegar seus adversarios
+
+
+
+
+### LAND ###
+
+classe Land:
+	Leaf: FlatLand (Planicie):
+		+5 de ataque para elfos invocadores
+		+5 de dano para ataques a longa distancia
+
+	Leaf: Hell:
+		+15 de ataque e +10 de defesa para usuarios de magia negra
+		-5 de defesa para elfos
+
+	Leaf: Forest:
+		+20 de ataque e +10 de defesa para elfos
+		+10 de ataque para os ninjas
+
+	//Subclasse Vila:
+	//	Leaf:

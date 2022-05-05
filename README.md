@@ -9,6 +9,7 @@
 ### Joint Implementation
   * 1.2 Steam (Singleton + Bridge)
   * 4 Snake (Memento)
+  * 5.6 CardGame (Facade + Composite)
 
 ### Other
 * [Standards for contributors (Portuguese)](https://github.com/Augusto-Fadanelli/DesignPatterns/blob/main/Standards_for_contributors%20_pt-BR.md)

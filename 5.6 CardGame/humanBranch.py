@@ -1,18 +1,18 @@
-from compositeDP import Component
+from compositeDP import *
 
-class Human(Component):
+class Human(Composite):
     def operation(self) -> str:
-         return 'Human'
+         return super().operation(name='Human')
 
-class Knight(Component):
+class Knight(Composite):
     '''
     Docstring:
-    Human subclass
+    Human branch
     '''
     def operation(self) -> str:
-        return 'Knight'
+        return super().operation(name='Knight')
 
-class Templar(Component):
+class Templar(Leaf):
     '''
     Docstring:
     Knight leaf
@@ -26,9 +26,9 @@ class Templar(Component):
         'para ganhar uma guerra mesmo que isso custe sua vida.'
 
     def operation(self) -> str:
-        return 'Templar'
+        return super().operation(name='Templar')
 
-class Paladin(Component):
+class Paladin(Leaf):
     '''
     Docstring:
     Knight leaf
@@ -42,17 +42,17 @@ class Paladin(Component):
         'varias ataques de uma só vez. Com toda certeza ter-lo em sua equipe é um passo para a vitória'
 
     def operation(self) -> str:
-        return 'Paladin'
+        return super().operation(name='Paladin')
 
-class Assassin(Component):
+class Assassin(Composite):
     '''
     Docstring:
-    Human subclass
+    Human branch
     '''
     def operation(self) -> str:
-        return 'Assassin'
+        return super().operation(name='Assassin')
 
-class Ninja(Component):
+class Ninja(Leaf):
     '''
     Docstring:
     Assassin leaf
@@ -66,9 +66,9 @@ class Ninja(Component):
         'rapido e furtivo'
 
     def operation(self) -> str:
-        return 'Ninja'
+        return super().operation(name='Ninja')
 
-class StealthKiller(Component):
+class StealthKiller(Leaf):
     '''
     Docstring:
     Assassin leaf
@@ -82,12 +82,12 @@ class StealthKiller(Component):
         'Otimo atirador e tmabém um combatente corpo a corpo'
 
     def operation(self) -> str:
-        return 'Stealth Killer'
+        return super().operation(name='Stealth Killer')
 
-class Fighter(Component):
+class Fighter(Leaf):
     '''
     Docstring:
     Human leaf
     '''
     def operation(self) -> str:
-        return 'Fighter'
+        return super().operation(name='Fighter')

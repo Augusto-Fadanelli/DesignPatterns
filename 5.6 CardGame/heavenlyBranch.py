@@ -1,18 +1,18 @@
-from compositeDP import Component
+from compositeDP import *
 
-class Heavenly(Component):
+class Heavenly(Composite):
     def operation(self) -> str:
-        return 'Heavenly'
+        return super().operation(name='Heavenly')
 
-class Magician(Component):
+class Magician(Composite):
     '''
     Docstring:
-    Heavenly subclass
+    Heavenly branch
     '''
     def operation(self) -> str:
-        return 'Magician'
+        return super().operation(name='Magician')
 
-class DarkMagician(Component):
+class DarkMagician(Leaf):
     '''
     Docstring:
     Magician leaf
@@ -26,9 +26,9 @@ class DarkMagician(Component):
         'por mais poder. Em um campo de batalha não se pode substimar seus poderes'
 
     def operation(self) -> str:
-        return 'Dark Magician'
+        return super().operation(name='Dark Magician')
 
-class LightMagician(Component):
+class LightMagician(Leaf):
     '''
     Docstring:
     Magician leaf
@@ -42,17 +42,17 @@ class LightMagician(Component):
         'Esse mago usa de todo seu conhecimento para deter as forças que atarapalham o sossego dos inocentes.'
 
     def operation(self) -> str:
-        return 'Light Magician'
+        return super().operation(name='Light Magician')
 
-class Sorcerer(Component):
+class Sorcerer(Composite):
     '''
     Docstring:
-    Heavenly subclass
+    Heavenly branch
     '''
     def operation(self) -> str:
-        return 'Sorcerer'
+        return super().operation(name='Sorcerer')
 
-class DarkSorcerer(Component):
+class DarkSorcerer(Leaf):
     '''
     Docstring:
     Sorcerer leaf
@@ -66,9 +66,9 @@ class DarkSorcerer(Component):
         'sombrio é um poblema dobrado, eles são tão poderesos que podem mudar a realidade ao seu bem prazer'
 
     def operation(self) -> str:
-        return 'Dark Sorcerer'
+        return super().operation(name='Dark Sorcerer')
 
-class LightSorcerer(Component):
+class LightSorcerer(Leaf):
     '''
     Docstring:
     Sorcerer leaf
@@ -83,17 +83,17 @@ class LightSorcerer(Component):
         'Não seja inimigos deles se você ainda quer viver'
 
     def operation(self) -> str:
-        return 'Light Sorcerer'
+        return super().operation(name='Light Sorcerer')
 
-class Elf(Component):
+class Elf(Composite):
     '''
     Docstring:
-    Heavenly subclass
+    Heavenly branch
     '''
     def operation(self) -> str:
-        return 'Elf'
+        return super().operation(name='Elf')
 
-class ShapeshifterElf(Component):
+class ShapeshifterElf(Leaf):
     '''
     Docstring:
     Elf leaf
@@ -107,9 +107,9 @@ class ShapeshifterElf(Component):
         'O Metamorfo não tem  muito sentimentalismo pela natureza, e muitas vezes até prejudica a mesma.'
 
     def operation(self) -> str:
-        return 'Shapeshifter elf'
+        return super().operation(name='Shapeshifter Elf')
 
-class SummonerElf(Component):
+class SummonerElf(Leaf):
     '''
     Docstring:
     Elf leaf
@@ -124,9 +124,9 @@ class SummonerElf(Component):
         'desde um Inseto até um mamute ou coisa maior.'
 
     def operation(self) -> str:
-        return 'Summoner Elf'
+        return super().operation(name='Summoner Elf')
 
-class elfArcher(Component):
+class ElfArcher(Leaf):
     '''
     Docstring:
     Elf leaf
@@ -141,4 +141,4 @@ class elfArcher(Component):
         'matar seu inimigo antes que ele consiga se aproximar.'
 
     def operation(self) -> str:
-        return 'Elf Archer'
+        return super().operation(name='Elf Archer')

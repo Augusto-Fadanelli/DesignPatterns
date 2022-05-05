@@ -1,10 +1,10 @@
-from compositeDP import Component
+from compositeDP import *
 
-class Land(Component):
+class Land(Composite):
     def operation(self) -> str:
-        return 'Land'
+        return super().operation(name='Land')
 
-class FlatLand(Component):
+class FlatLand(Leaf):
     '''
     Docstring:
     Land leaf
@@ -15,9 +15,9 @@ class FlatLand(Component):
         'Um lugar ideal para uma guerra com varios combatentes'
 
     def operation(self) -> str:
-        return 'Flat Land'
+        return super().operation(name='Flat Land')
 
-class Hell(Component):
+class Hell(Leaf):
     '''
     Docstring:
     Land leaf
@@ -28,9 +28,9 @@ class Hell(Component):
         'Se seu inimigo for um deles, então tome cuidado ao enfrenta-lo nesse lugar'
 
     def operation(self) -> str:
-        return 'Hell'
+        return super().operation(name='Hell')
 
-class Forest(Component):
+class Forest(Leaf):
     '''
     Docstring:
     Land leaf
@@ -41,4 +41,4 @@ class Forest(Component):
         'pois pode a ver criaturas e aarmadinhas pronto para captura-lo'
 
     def operation(self) -> str:
-        return 'Forest'
+        return super().operation(name='Forest')

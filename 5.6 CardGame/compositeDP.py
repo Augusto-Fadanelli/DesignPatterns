@@ -25,8 +25,8 @@ class Component(ABC):
         pass
 
 class Leaf(Component):
-    def operation(self) -> str:
-        return 'Leaf'
+    def operation(self, name='Leaf') -> str:
+        return f'L:{name}'
 
 class Composite(Component):
     def __init__(self):
@@ -43,9 +43,9 @@ class Composite(Component):
     def is_composite(self):
         return True
 
-    def operation(self):
+    def operation(self, name='Branch'):
         results = []
         for child in self._children:
             results.append(child.operation())
 
-        return f"Branch({'+'.join(results)})"
+        return f"B:{name}({' + '.join(results)})"

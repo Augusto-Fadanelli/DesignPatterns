@@ -1,18 +1,18 @@
-from compositeDP import Component
+from compositeDP import *
 
-class Support(Component):
+class Support(Composite):
     def operation(self) -> str:
-        return 'Support'
+        return super().operation(name='Support')
 
-class Divine(Component):
+class Divine(Composite):
     '''
     Docstring:
-    Support subclass
+    Support branch
     '''
     def operation(self) -> str:
-        return 'Divine'
+        return super().operation(name='Divine')
 
-class Cleric(Component):
+class Cleric(Leaf):
     '''
     Docstring:
     Divine leaf
@@ -26,17 +26,17 @@ class Cleric(Component):
         'podendo ate mesmo morrer para salvar seus companheiros'
 
     def operation(self) -> str:
-        return 'Cleric'
+        return super().operation(name='Cleric')
 
-class Druid(Component):
+class Druid(Composite):
     '''
     Docstring:
-    Divine subclass
+    Divine branch
     '''
     def operation(self) -> str:
-        return 'Druid'
+        return super().operation(name='Druid')
 
-class Ninfa(Component):
+class Nymph(Leaf):
     '''
     Docstring:
     Druid leaf
@@ -50,4 +50,4 @@ class Ninfa(Component):
         'são de grande ajuda em uma guerra, podendo curar tropas e ate a si mesmo'
 
     def operation(self) -> str:
-        return 'Ninfa'
+        return super().operation(name='Nymph')

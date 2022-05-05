@@ -10,8 +10,8 @@ class FireRain(Leaf):
     Spell leaf
     '''
     def description(self):
-        return 'A melhor legião de elfos arqueiros se juntam se para\n'
-        'criar a tão temida chuva de flechas, sendo bem utilida ela é capaz de dizimar um exercito'
+        return 'A melhor legião de elfos arqueiros junta-se para criar a tão temida chuva de flechas.\n' \
+        'Sendo bem utilizada ela é capaz de dizimar um exército inteiro.'
 
     def operation(self) -> str:
         return super().operation(name='Fire Rain')
@@ -22,8 +22,8 @@ class TrailOfDead(Leaf):
     Spell leaf
     '''
     def description(self):
-        return 'Um poder tão forte nas maão certas pode decidir o destino de uma\n'
-        'batalha, com apenas um jesto voceê é capaz de invocar os mortos para lutar ao seu lado'
+        return 'Um poder tão forte nas mãos certas pode decidir o destino de uma batalha,\n' \
+        'com apenas um gesto você é capaz de invocar os mortos para lutar ao seu lado.'
 
     def operation(self) -> str:
         return super().operation(name='Trail of Dead')
@@ -42,7 +42,7 @@ class Esculapio(Leaf):
     HealingSpell leaf
     '''
     def description(self):
-        return 'Com o poder divino os clerigos irão ajuda-lo a recuperar vida'
+        return 'Com o poder divino os clérigos irão ajudá-lo a recuperar vida.'
 
     def operation(self) -> str:
         return super().operation(name='Esculápio')
@@ -53,7 +53,7 @@ class NightHerbs(Leaf):
     HealingSpell leaf
     '''
     def description(self):
-        return 'Um poder de cura conjurado pelos melhores druidas que irão ajudar em sua batalha'
+        return 'Um poder de cura preparado pelos melhores druidas que irão ajudar em sua batalha.'
 
     def operation(self) -> str:
         return super().operation(name='Night Herbs')

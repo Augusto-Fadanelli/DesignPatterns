@@ -22,8 +22,8 @@ class Cleric(Leaf):
         self._def = 10
 
     def description(self):
-        return 'Um excelente suporte de cura, para ajudar suas tropas,\n'
-        'podendo ate mesmo morrer para salvar seus companheiros'
+        return 'Um excelente suporte de cura para ajudar as suas tropas,\n' \
+        'podendo até mesmo morrer para salvar seus companheiros.'
 
     def operation(self) -> str:
         return super().operation(name='Cleric')
@@ -46,8 +46,8 @@ class Nymph(Leaf):
         self._def = 7
 
     def description(self):
-        return 'Não são tão fortes quantos os outros fortes em combate, porem,\n' 
-        'são de grande ajuda em uma guerra, podendo curar tropas e ate a si mesmo'
+        return 'Não são tão fortes quanto os outros combatentes, porém,\n' \
+        'são de grande ajuda em uma guerra, podendo curar tropas e até a si mesmo.'
 
     def operation(self) -> str:
         return super().operation(name='Nymph')

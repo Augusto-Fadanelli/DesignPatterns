@@ -10,7 +10,7 @@ class CurePotion(Leaf):
     Potion leaf
     '''
     def description(self):
-        return 'Porção para recuperar HP, feita pelos melhores Druidas de todo o mundo'
+        return 'Poção para recuperar HP, feita pelos melhores Druidas de todo o mundo.'
 
     def operation(self) -> str:
         return super().operation(name='Potion of Cure')
@@ -21,8 +21,8 @@ class WeaknessPotion(Leaf):
     Potion leaf
     '''
     def description(self):
-        return 'Uma porção que causa fraqueza em todos aqueles que beberem ou inalarem\n'
-        'podendo ser o fim da vida daquele que estiver no caminho'
+        return 'Uma poção que causa fraqueza em todos àqueles que beberem ou inalarem,\n' \
+        'podendo ser o fim da vida daquele que estiver no caminho.'
 
     def operation(self) -> str:
         return super().operation(name='Potion of Weakness')
@@ -33,8 +33,8 @@ class StrengthPotion(Leaf):
     Potion leaf
     '''
     def description(self):
-        return 'Também conhecida como Força de Hércules essa porção é\n'
-        'capaz de aumentar a força de seu usuário em 2x'
+        return 'Também conhecida como Força de Hércules, essa poção é\n' \
+        'capaz de aumentar a força de quem à consumir.'
 
     def operation(self) -> str:
         return super().operation(name='Potion of Strength')
@@ -45,8 +45,8 @@ class PoisonPotion(Leaf):
     Potion leaf
     '''
     def description(self):
-        return 'Veneno da criatura mais perigosa do mundo, apenas o ato de\n'
-        'buscar e preparar essa porção torna ela a mais perigosa.'
+        return 'Um veneno extraído da criatura mais perigosa do mundo, tão logo\n' \
+        'o ato de buscar e preparar essa poção pode matá-lo.'
 
     def operation(self) -> str:
         return super().operation(name='Potion of Poison')

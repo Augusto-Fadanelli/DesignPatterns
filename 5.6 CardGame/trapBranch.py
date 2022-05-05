@@ -10,8 +10,8 @@ class MeteorRain(Leaf):
     Trap leaf
     '''
     def description(self):
-        return 'Enormes rochas de fogo caindo do céu e atigindo o campo de batalha.\n'
-        'Sempre olhe para cima se não quiser ser atigindo.'
+        return 'Enormes rochas de fogo caem do céu e atingem o campo de batalha.\n' \
+        'Sempre olhe para cima se não quiser ser esmagado.'
 
     def operation(self) -> str:
         return super().operation(name='Meteor Rain')
@@ -22,8 +22,8 @@ class Necromancy(Leaf):
     Trap leaf
     '''
     def description(self):
-        return 'A magia proibida está escrita no necromante, capaz de ressuscitar\n'
-        'uma legião de mortos-vivo. Além disso todos irão obedecer sua ordens.'
+        return 'A magia proibida está escrita no necromante, capaz de ressuscitar\n' \
+        'uma legião de mortos-vivos. Além disso, todos irão obedecer suas ordens.'
 
     def operation(self) -> str:
         return super().operation(name='Necromancy')
@@ -34,8 +34,8 @@ class AlternateReality(Leaf):
     Trap leaf
     '''
     def description(self):
-        return 'Com esse feitiço tudo a sua volta muda ao seu bel-prazer,\n'
-        'simplesmente o poder mais forte de todo o jogo'
+        return 'Com este feitiço, o campo de batalha será movido.\n' \
+        'Essa é a sua chance de mudar o rumo do jogo.'
 
     def operation(self) -> str:
         return super().operation(name='Alternate Reality')
@@ -46,8 +46,8 @@ class Madness(Leaf):
     Trap Leaf
     '''
     def description(self):
-        return 'Faça seus inimigos materem uns aos outros com esssa carta,\n'
-        'todos afetados com essa magia estão a beira da loucara máxima'
+        return 'Faça seus inimigos matarem uns aos outros com essa carta,\n' \
+        'todos os afetados com essa magia estão à beira da loucara máxima.'
 
     def operation(self) -> str:
         return super().operation(name='Madness')
@@ -66,8 +66,8 @@ class Thorns(Leaf):
     Terrestrial leaf
     '''
     def description(self):
-        return 'Armadinha terrestre feita para capturar e matar seus inimigos destraidos,\n'
-        'uma vez colocada em jogo ela é capaz acabar com varios adversarios.'
+        return 'Armadilha terrestre feita para capturar e matar seus inimigos distraídos.\n' \
+        'Uma vez colocada em jogo, ela é capaz acabar com vários adversarios.'
 
     def operation(self) -> str:
         return super().operation(name='Thorns')
@@ -78,8 +78,8 @@ class LightStatue(Leaf):
     Terrestrial leaf
     '''
     def description(self):
-        return 'Essa estátua é capaz de cegar e desorientar varios adversarios\n'
-        'sendo considerada uma dor de cabeça caso veja ela no campo de batalha'
+        return 'Essa estátua é capaz de cegar e desorientar seus adversários,\n' \
+        'sendo considerada uma dor de cabeça caso seja encontrada no campo de batalha.'
 
     def operation(self) -> str:
         return super().operation(name='Light Statue')

@@ -5,6 +5,12 @@
   * 4.0 Memento
   * 5.0 Facade
   * 6.0 Composite
+  * 7.0 Factory Method
+  * 8.0 Abstract Factory
+  * 9.0 Decorator
+  * 10.0 Proxy
+  * 11.0 Flyweight
+  * 12.0 State
 
 ### Joint Implementation
   * 1.2 Steam (Singleton + Bridge)

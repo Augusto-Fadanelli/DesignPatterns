@@ -13,11 +13,19 @@ class FlyweightFactory:
     def __init__(self):
         self._flyweights = {}
 
-    def get_flyweight(self, key):
+    def getHappyPig(self, key):
         try:
             flyweight = self._flyweights[key]
         except KeyError:
             flyweight = HappyPig()
+            self._flyweights[key] = flyweight
+        return flyweight
+
+    def getAngryPig(self, key):
+        try:
+            flyweight = self._flyweights[key]
+        except KeyError:
+            flyweight = AngryPig()
             self._flyweights[key] = flyweight
         return flyweight
 
@@ -41,6 +49,29 @@ class HappyPig(Flyweight):
         self.sprites.append(pygame.image.load('Assets/pig idle/Pig Idle 7.png'))
         self.sprites.append(pygame.image.load('Assets/pig idle/Pig Idle 8.png'))
         self.sprites.append(pygame.image.load('Assets/pig idle/Pig Idle 9.png'))
+
+    def getSprites(self):
+        return self.sprites
+
+class AngryPig(Flyweight):
+    '''
+    Concrete Flyweight
+    Contém valores intrínsecos, que podem ser compartilhados entre múltiplos objetos
+    '''
+    def __init__(self):
+        self.sprites = []
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 1.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 2.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 3.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 4.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 5.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 6.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 7.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 8.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 9.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 10.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 11.png'))
+        self.sprites.append(pygame.image.load('Assets/angry pig idle/Pig Idle 12.png'))
 
     def getSprites(self):
         return self.sprites
@@ -81,7 +112,8 @@ if __name__ == '__main__':
 
     all_sprites = pygame.sprite.Group()
     flyweight_factory = FlyweightFactory()
-    pig = flyweight_factory.get_flyweight(f'key:{0}')
+    happy_pig = flyweight_factory.getHappyPig(f'key:{0}')
+    angry_pig = flyweight_factory.getAngryPig(f'key:{1}')
 
     while True:
         clock.tick(30)
@@ -94,9 +126,16 @@ if __name__ == '__main__':
 
             if event.type == KEYDOWN:
                 if event.key == K_q:
-                    context = Context(pig)
-                    posX = random.randint(1, screen_width)
-                    posY = random.randint(1, screen_height)
+                    context = Context(happy_pig)
+                    posX = random.randint(10, screen_width - 30)
+                    posY = random.randint(10, screen_height - 30)
+                    context.getPos(posX, posY)
+                    all_sprites.add(context)
+
+                if event.key == K_w:
+                    context = Context(angry_pig)
+                    posX = random.randint(10, screen_width - 30)
+                    posY = random.randint(10, screen_height - 30)
                     context.getPos(posX, posY)
                     all_sprites.add(context)
 

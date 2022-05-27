@@ -11,11 +11,14 @@
   * 10.0 Proxy
   * 11.0 Flyweight
   * 12.0 State
+  * 13.0 Observer
+  * 14.0 Prototype
 
 ### Joint Implementation
   * 1.2 Steam (Singleton + Bridge)
   * 4 Snake (Memento)
   * 5.6 CardGame (Facade + Composite)
+  * 11 Pig Game (Flyweight)
 
 ### Other
 * [Standards for contributors (Portuguese)](https://github.com/Augusto-Fadanelli/DesignPatterns/blob/main/Standards_for_contributors%20_pt-BR.md)

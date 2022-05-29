@@ -109,6 +109,7 @@ if __name__ == '__main__':
     subject.some_business_logic()
     subject.some_business_logic()
 
+    print()
     subject.detach(observer_a) # Remove observer_a da lista de observers
 
     # Muda o estado do subject

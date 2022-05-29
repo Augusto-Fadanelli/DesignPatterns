@@ -36,6 +36,7 @@ class Science(Publisher):
     '''
     _subscribers: List[Subscriber] = []
     _articles: List[Article] = []
+    _genre = 'Science'
 
     def attachSubscriber(self, subscriber: Subscriber):
         # Verifica se o subscriber já existe na lista de subscribers
@@ -74,10 +75,18 @@ class Science(Publisher):
     def getArticles(self):
         return self._articles
 
-    def debug(self):
-        print('\nScience:')
+    def getGenre(self):
+        return self._genre
+
+    def debugSubscribers(self):
+        print('\nScience subscribers:')
         for subscriber in self._subscribers:
             print(subscriber.getUserName())
+
+    def debugArticles(self):
+        print('\nScience articles:')
+        for article in self._articles:
+            print(article.getTitle())
 
 class Policy(Publisher):
     '''
@@ -85,6 +94,7 @@ class Policy(Publisher):
     '''
     _subscribers: List[Subscriber] = []
     _articles: List[Article] = []
+    _genre = 'Policy'
 
     def attachSubscriber(self, subscriber: Subscriber):
         # Verifica se o subscriber já existe na lista de subscribers
@@ -123,10 +133,18 @@ class Policy(Publisher):
     def getArticles(self):
         return self._articles
 
-    def debug(self):
-        print('\nPolicy:')
+    def getGenre(self):
+        return self._genre
+
+    def debugSubscribers(self):
+        print('\nPolicy subscribers:')
         for subscriber in self._subscribers:
             print(subscriber.getUserName())
+
+    def debugArticles(self):
+        print('\nPolicy articles:')
+        for article in self._articles:
+            print(article.getTitle())
 
 class Article():
     '''
@@ -158,6 +176,13 @@ class Subscriber():
     def getUserName(self):
         return self._user_name
 
+    def getArticles(self):
+        #return self._articles
+        article_titles = []
+        for article in self._articles:
+            article_titles.append(article.getTitle())
+        return article_titles
+
     def update(self, publisher: Publisher):
         self._articles = publisher.getArticles()
 
@@ -180,13 +205,84 @@ if __name__ == '__main__':
     politica.attachSubscriber(joao)
     politica.attachSubscriber(fernanda)
 
-    ciencia.debug()
-    politica.debug()
+    #ciencia.debugSubscribers()
+    #politica.debugSubscribers()
 
-    politica.detachSubscriber(antonio)
+    #politica.detachSubscriber(antonio)
     ciencia.detachSubscriber(joao)
 
-    ciencia.debug()
-    politica.debug()
+    ciencia.debugSubscribers()
+    politica.debugSubscribers()
+
+    # Cria novos artigos
+    artigo1 = Article(
+        'Professor da UNIFAP Ganha Nobel da Paz Após Resolver Problema da Fome no Mundo',
+        'William Bonner',
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum" \
+        " has been the industry's standard dummy text ever since the 1500s, when an unknown" \
+        " printer took a galley of type and scrambled it to make a type specimen book. It has" \
+        " survived not only five centuries, but also the leap into electronic typesetting," \
+        " remaining essentially unchanged. It was popularised in the 1960s with the release of" \
+        " Letraset sheets containing Lorem Ipsum passages, and more recently with desktop" \
+        " publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+
+    artigo2 = Article(
+        'Artigo de Política',
+        'Autor Aleatório 1',
+         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum" \
+        " has been the industry's standard dummy text ever since the 1500s, when an unknown" \
+        " printer took a galley of type and scrambled it to make a type specimen book. It has" \
+        " survived not only five centuries, but also the leap into electronic typesetting," \
+        " remaining essentially unchanged. It was popularised in the 1960s with the release of" \
+        " Letraset sheets containing Lorem Ipsum passages, and more recently with desktop" \
+        " publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+
+    artigo3 = Article(
+        'Artigo de Ciência',
+        'Autor Aleatório 2',
+         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum" \
+        " has been the industry's standard dummy text ever since the 1500s, when an unknown" \
+        " printer took a galley of type and scrambled it to make a type specimen book. It has" \
+        " survived not only five centuries, but also the leap into electronic typesetting," \
+        " remaining essentially unchanged. It was popularised in the 1960s with the release of" \
+        " Letraset sheets containing Lorem Ipsum passages, and more recently with desktop" \
+        " publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+
+    # Anexa artigos ao seu gênero
+    ciencia.attachArticle(artigo1)
+    politica.attachArticle(artigo1)
+
+    politica.attachArticle(artigo2)
+
+    ciencia.attachArticle(artigo3)
+
+    # Debug: Mostra lista de artigos anexada a cada gênero
+    ciencia.debugArticles()
+    politica.debugArticles()
+
+    # Mostra as novas matérias para cada inscrito
+    print(f'\nAntonio:\n {antonio.getArticles()}')
+    print(f'\nMaria:\n {maria.getArticles()}')
+    print(f'\nJoao:\n {joao.getArticles()}')
+    print(f'\nFernanda:\n {fernanda.getArticles()}')
+
+    # Remove artigos
+    ciencia.detachArticle(artigo1)
+    politica.detachArticle(artigo1)
+
+    # Remove errado
+    print()
+    ciencia.detachArticle(artigo2) # Não está em ciencia
+    politica.detachArticle(artigo3) # Não está em politica
+
+    # Debug: Mostra lista de artigos anexada a cada gênero
+    ciencia.debugArticles()
+    politica.debugArticles()
+
+    # Mostra as novas matérias para cada inscrito
+    print(f'\nAntonio:\n {antonio.getArticles()}')
+    print(f'\nMaria:\n {maria.getArticles()}')
+    print(f'\nJoao:\n {joao.getArticles()}')
+    print(f'\nFernanda:\n {fernanda.getArticles()}')
 
 

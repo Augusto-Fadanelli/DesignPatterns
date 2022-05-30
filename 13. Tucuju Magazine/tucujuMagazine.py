@@ -168,7 +168,8 @@ class Subscriber():
     '''
     Observer
     '''
-    _articles: List[Article] = []
+    #_articles: List[Article] = []
+    _articles = {}
 
     def __init__(self, user_name: str):
         self._user_name = user_name
@@ -177,14 +178,25 @@ class Subscriber():
         return self._user_name
 
     def getArticles(self):
-        #return self._articles
         article_titles = []
-        for article in self._articles:
-            article_titles.append(article.getTitle())
+        #print(f'\t{self._articles}')
+        temp = self._articles
+        for genre in temp.values():
+            #print(f'\tgenre: {genre}')
+            for article in genre:
+                #print(f'\tarticle: {article}')
+                article_titles.append(article.getTitle())
         return article_titles
 
     def update(self, publisher: Publisher):
-        self._articles = publisher.getArticles()
+        #self._articles = publisher.getArticles()
+        self._articles.update({publisher.getGenre(): publisher.getArticles()})
+
+        # Debug
+        print(f'\n{self.getUserName():}')
+        print(f'\tgetGenre(): {publisher.getGenre()}')
+        print(f'\tgetArticles(): {publisher.getArticles()}')
+        print(f'\t_articles: {self._articles}\n')
 
 if __name__ == '__main__':
     # Client code

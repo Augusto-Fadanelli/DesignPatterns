@@ -168,7 +168,8 @@ class Subscriber():
     '''
     Observer
     '''
-    _articles: List[Article] = []
+    _policy_articles: List[Article] = []
+    _science_articles: List[Article] = []
 
     def __init__(self, user_name: str):
         self._user_name = user_name
@@ -179,12 +180,21 @@ class Subscriber():
     def getArticles(self):
         #return self._articles
         article_titles = []
-        for article in self._articles:
-            article_titles.append(article.getTitle())
+        if len(self._policy_articles) > 0:
+            for article in self._policy_articles:
+                article_titles.append(article.getTitle())
+        if len(self._science_articles) > 0:
+            for article in self._science_articles:
+                if not article.getTitle() in article_titles: # Impede que títulos repetidos sejam mostrados
+                    article_titles.append(article.getTitle())
+
         return article_titles
 
     def update(self, publisher: Publisher):
-        self._articles = publisher.getArticles()
+        if publisher.getGenre() == 'Policy':
+            self._policy_articles = publisher.getArticles()
+        elif publisher.getGenre() == 'Science':
+            self._science_articles = publisher.getArticles()
 
 if __name__ == '__main__':
     # Client code
@@ -200,7 +210,7 @@ if __name__ == '__main__':
     ciencia.attachSubscriber(antonio)
     ciencia.attachSubscriber(maria)
 
-    politica.attachSubscriber(antonio)
+    #politica.attachSubscriber(antonio)
     politica.attachSubscriber(antonio)
     politica.attachSubscriber(joao)
     politica.attachSubscriber(fernanda)
@@ -209,7 +219,7 @@ if __name__ == '__main__':
     #politica.debugSubscribers()
 
     #politica.detachSubscriber(antonio)
-    ciencia.detachSubscriber(joao)
+    #ciencia.detachSubscriber(joao)
 
     ciencia.debugSubscribers()
     politica.debugSubscribers()
@@ -271,9 +281,9 @@ if __name__ == '__main__':
     politica.detachArticle(artigo1)
 
     # Remove errado
-    print()
-    ciencia.detachArticle(artigo2) # Não está em ciencia
-    politica.detachArticle(artigo3) # Não está em politica
+    #print()
+    #ciencia.detachArticle(artigo2) # Não está em ciencia
+    #politica.detachArticle(artigo3) # Não está em politica
 
     # Debug: Mostra lista de artigos anexada a cada gênero
     ciencia.debugArticles()

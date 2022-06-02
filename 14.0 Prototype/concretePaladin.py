@@ -2,6 +2,10 @@ from prototype import Prototype
 import copy
 import time
 
+#Foi adicionado o time para representar o tempo que demora para o 
+#Paladino ser produzido similar a um jogo. Isso não significa quer é o
+#tempo de instanciação, e sim o tempo que representa a criação do personagem.
+
 class Paladin(Prototype):
     def __init__(self, age, defense, attack):
         time.sleep(5)

@@ -13,6 +13,8 @@
   * 12.0 State
   * 13.0 Observer
   * 14.0 Prototype
+  * 15.0 Visitor
+  * 16.0 Chain of Responsibility
 
 ### Joint Implementation
   * 1.2 Steam (Singleton + Bridge)

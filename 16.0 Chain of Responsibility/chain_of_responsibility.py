@@ -1,5 +1,3 @@
-# Código retirado de https://refactoring.guru/pt-br/design-patterns/chain-of-responsibility/python/example
-
 from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Any, Optional
@@ -7,8 +5,6 @@ from typing import Any, Optional
 class Handler(ABC):
     '''
     Interface.
-    Declara um método para construir a corrente de handlers.
-    Também declara um método para executar uma solicitação.
     '''
 
     @abstractmethod
@@ -20,11 +16,6 @@ class Handler(ABC):
         pass
 
 class AbstractHandler(Handler):
-    '''
-    O comportamento padrão de encadeamento (setar o próximo objeto da corrente) pode ser
-    implementado dentro de uma classe Handler base.
-    '''
-
     _next_handler: Handler = None
 
     def setNext(self, handler: Handler):
@@ -38,47 +29,32 @@ class AbstractHandler(Handler):
 
         return None
 
-class MonkeyHandler(AbstractHandler):
+class ConcreteHandlerA(AbstractHandler):
     def handle(self, request: Any):
-        if request == 'Banana':
-            return f"Monkey: I'll eat the {request}!"
-        else:
-            return super().handle(request)
+        if request == 'A' or request == 'All':
+            print('Handler-A,', end=' ')
 
-class SquirrelHandler(AbstractHandler):
+        return super().handle(request)
+
+class ConcreteHandlerB(AbstractHandler):
     def handle(self, request: Any):
-        if request == 'Nut':
-            return f"Monkey: I'll eat the {request}!"
-        else:
-            return super().handle(request)
+        if request == 'B' or request == 'All':
+            print('Handler-B,', end=' ')
 
-class DogHandler(AbstractHandler):
+        return super().handle(request)
+
+class ConcreteHandlerC(AbstractHandler):
     def handle(self, request: Any):
-        if request == 'MeatBall':
-            return f"Dog: I'll eat the {request}!"
-        else:
-            return super().handle(request)
+        if request == 'C' or request == 'All':
+            print('Handler-C,', end=' ')
 
-def clientCode(handler: Handler):
-    for food in ['Nut', 'Banana', 'Cup of coffee']:
-        print(f'\nClient: Who wants a {food}?')
-        result = handler.handle(food)
-        if result:
-            print(f' {result}', end='')
-        else:
-            print(f' {food} was left untouched.', end='')
+        return super().handle(request)
 
 if __name__ == '__main__':
-    monkey = MonkeyHandler()
-    squirrel = SquirrelHandler()
-    dog = DogHandler()
+    handlerA = ConcreteHandlerA()
+    handlerB = ConcreteHandlerB()
+    handlerC = ConcreteHandlerC()
 
-    monkey.setNext(squirrel).setNext(dog)
+    handlerA.setNext(handlerB).setNext(handlerC)
 
-    print('Chain: Monkey > Squirrel > Dog')
-    clientCode(monkey)
-    print()
-
-    print('Subchain: Squirrel > Dog')
-    clientCode(squirrel)
-    print()
+    handlerA.handle('All')

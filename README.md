@@ -22,6 +22,7 @@
   * 5.6 CardGame (Facade + Composite)
   * 11 Pig Game (Flyweight)
   * 13 Tucuju Magazine (Observer)
+  * 16 Market (Chain of Responsibility)
 
 ### Other
 * [Standards for contributors (Portuguese)](https://github.com/Augusto-Fadanelli/DesignPatterns/blob/main/Standards_for_contributors%20_pt-BR.md)

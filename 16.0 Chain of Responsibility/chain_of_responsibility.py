@@ -59,4 +59,4 @@ if __name__ == '__main__':
     #handlerB.setNext(handlerC).setNext(handlerA)
 
     teste = handlerA.handle('All')
-    #print('\n',teste)
+    # print('\n',teste)

@@ -1,5 +1,5 @@
 from market import Item, Cart
-from chainOfResponsibility import PromotionMoreThanTenThousand, PromotionMoreThanAThousand, Promotion5Products
+from chainOfResponsibility import PromotionMoreThanTenThousand, PromotionMoreThanAThousand, Promotion50Products
 
 if __name__ == '__main__':
 
@@ -45,8 +45,8 @@ if __name__ == '__main__':
     # Chain of Responsibility
     p_mais_de_10mil = PromotionMoreThanTenThousand()
     p_mais_de_mil = PromotionMoreThanAThousand()
-    p_5produtos = Promotion5Products()
+    p_50produtos = Promotion50Products()
 
-    p_mais_de_10mil.setNext(p_mais_de_mil).setNext(p_5produtos)
+    p_mais_de_10mil.setNext(p_mais_de_mil).setNext(p_50produtos)
 
     print(f'Valor com desconto: R${p_mais_de_10mil.handle(cart)}')

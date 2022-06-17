@@ -58,5 +58,5 @@ if __name__ == '__main__':
     handlerA.setNext(handlerB).setNext(handlerC)
     #handlerB.setNext(handlerC).setNext(handlerA)
 
-    teste = handlerA.handle('All')
+    handlerA.handle('All')
     # print('\n',teste)

@@ -53,7 +53,7 @@ class PromotionMoreThanAThousand(HandlerBase):
 
         return super().handle(cart)
 
-class Promotion5Products(HandlerBase):
+class Promotion50Products(HandlerBase):
     '''
     10% de desconto para 50 ou mais produtos no carrinho.
     '''

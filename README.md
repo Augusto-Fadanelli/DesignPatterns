@@ -22,6 +22,7 @@
   * 5.6 CardGame (Facade + Composite)
   * 11 Pig Game (Flyweight)
   * 13 Tucuju Magazine (Observer)
+  * 15 Taxes (Visitor)
   * 16 Market (Chain of Responsibility)
 
 ### Other

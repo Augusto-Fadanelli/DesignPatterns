@@ -1,3 +1,5 @@
+# Algoritmo baseado em https://youtu.be/5PRG7rT2dcU
+
 '''
 O algoritmo implementa um sistema de taxas de produtos que se alteram de acordo com o país.
 '''

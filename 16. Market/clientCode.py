@@ -38,7 +38,7 @@ if __name__ == '__main__':
         qtd_items += 1
     print(f'\nQuantidade total de produtos: {qtd_items}\n')
 
-    # Mostra o valor bruto sem deconto
+    # Mostra o valor bruto sem desconto
     print(f'Total: R${round((cart.totalValue()), 2)}')
 
 
@@ -49,4 +49,4 @@ if __name__ == '__main__':
 
     p_mais_de_10mil.setNext(p_mais_de_mil).setNext(p_50produtos)
 
-    print(f'Valor com desconto: R${p_mais_de_10mil.handle(cart)}')
+    print(f'Valor com desconto: R${round(p_mais_de_10mil.handle(cart), 2)}')

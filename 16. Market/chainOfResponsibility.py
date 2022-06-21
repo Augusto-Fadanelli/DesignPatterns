@@ -38,7 +38,7 @@ class PromotionMoreThanTenThousand(HandlerBase):
 
     def handle(self, cart: Cart):
         if cart.totalValue() >= 10_000:
-            return round((cart.totalValue() - (cart.totalValue() * 0.2)), 2)
+            return cart.totalValue() - (cart.totalValue() * 0.2)
 
         return super().handle(cart)
 
@@ -49,7 +49,7 @@ class PromotionMoreThanAThousand(HandlerBase):
 
     def handle(self, cart: Cart):
         if cart.totalValue() >= 1_000:
-            return round((cart.totalValue() - (cart.totalValue() * 0.15)), 2)
+            return cart.totalValue() - (cart.totalValue() * 0.15)
 
         return super().handle(cart)
 
@@ -60,7 +60,7 @@ class Promotion50Products(HandlerBase):
 
     def handle(self, cart: Cart):
         if len(cart.getItems()) >= 50:
-            return round((cart.totalValue() - (cart.totalValue() * 0.1)), 2)
+            return cart.totalValue() - (cart.totalValue() * 0.1)
 
         return super().handle(cart)
 

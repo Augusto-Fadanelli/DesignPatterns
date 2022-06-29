@@ -15,9 +15,13 @@
   * 14.0 Prototype
   * 15.0 Visitor
   * 16.0 Chain of Responsibility
+  * 17.0 Interpreter
+  * 18.0 Iterator
+  * 19.0 Mediator
+  * 20.0 Builder
 
 ### Joint Implementation
-  * 1.2 Steam (Singleton + Bridge)
+  * 2.1 Steam (Singleton + Bridge)
   * 4 Snake (Memento)
   * 5.6 CardGame (Facade + Composite)
   * 11 Pig Game (Flyweight)

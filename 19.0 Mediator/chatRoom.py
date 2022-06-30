@@ -13,6 +13,8 @@ class ChatRoom(Mediator):
     def add(self, colleague: Colleague) -> None:
         if not self.is_colleague(colleague):
             self.colleagues.append(colleague)
+        else:
+            print("Já foi adicionado")
 
     def remove(self, colleague: Colleague) -> None:
         if self.is_colleague(colleague):
@@ -24,19 +26,21 @@ class ChatRoom(Mediator):
         
         print(f"{colleague.name} disse: {msg}")
 
-    def direct(self, sender: Colleague, receiver: str, msg: str) -> None:
-        if not self.is_colleague(sender):
-            return
-        
-        receiver_obj = List[Colleague] = [
-            colleague for colleague in self.colleagues
-            if colleague.name == receiver
-        ]
-        
-        if not receiver_obj:
-            return
-        
-        receiver_obj[0].direct(
-            print(f"{sender.name} para {receiver_obj[0].name}: {msg}")
-        )
+
+
+    # def direct(self, sender: Colleague, receiver: str, msg: str) -> None:
+    #    if not self.is_colleague(sender):
+    #        return
+    #   
+    #    receiver_obj = List[Colleague] = [
+    #        colleague for colleague in self.colleagues
+    #        if colleague.name == receiver
+    #    ]
+    #    
+    #    if not receiver_obj:
+    #        return
+    #    
+    #    receiver_obj[0].direct(
+    #        print(f"{sender.name} para {receiver_obj[0].name}: {msg}")
+    #    )
 

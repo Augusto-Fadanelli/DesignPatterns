@@ -10,8 +10,8 @@ class Person(Colleague):
     def broadcast(self, msg: str) -> None:
         self.mediator.broadcast(self, msg)
     
-    def send_direct(self, receiver: str, msg: str) -> None:
-        self.mediator.direct(self, receiver, msg)
+    # def send_direct(self, receiver: str, msg: str) -> None:
+    #    self.mediator.direct(self, receiver, msg)
     
-    def direct(self, msg: str) -> None:
-        print(msg)
+    # def direct(self, msg: str) -> None:
+    #    print(msg)

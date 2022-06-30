@@ -8,19 +8,21 @@ joao = Person("Joao", chat)
 maria = Person("Maria", chat)
 luan = Person("Luan", chat)
 pedro = Person("Pedro", chat)
+#pedro = Person("Pedro", chat)
 
 chat.add(joao)
 chat.add(maria)
 chat.add(luan)
 chat.add(pedro)
-#Pedro não foi adicionado ao chat
+#chat.add(pedro)
 
 joao.broadcast("Ola mundo")
-maria.broadcast("Ola para todos")
-pedro.broadcast("Não fui adicionado ao chat")
+maria.broadcast("Sai disso de 'Ola mundo' kkkk")
+pedro.broadcast("Fui adicionado ao chat")
+luan.broadcast("Estou no broadcast")
 
-#NOTA: MEU DIRECT NÃO FUNCIONAR ;-;
+#NOTA: 
 print()
-pedro.send_direct('Joao', 'Ola Maria, tudo bem?')
-joao.send_direct('Pedro', 'Bem, e você?')
+#pedro.send_direct('Joao', 'Ola Maria, tudo bem?')
+#joao.send_direct('Pedro', 'Bem, e você?')
 

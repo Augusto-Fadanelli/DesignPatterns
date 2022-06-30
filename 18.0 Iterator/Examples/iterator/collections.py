@@ -38,31 +38,10 @@ if __name__ == '__main__':
     words_list.addItem('Terceiro')
 
     wl_iterator = words_list.createIterator()
-    if wl_iterator.hasMore():
+    while wl_iterator.hasMore():
         print(wl_iterator.getNext())
         print()
-    else:
-        print('fim')
 
-    if wl_iterator.hasMore():
-        print(wl_iterator.getNext())
-        print()
-    else:
-        print('fim')
-
-    if wl_iterator.hasMore():
-        print(wl_iterator.getNext())
-        print()
-    else:
-        print('fim')
-
-    if wl_iterator.hasMore():
-        print(wl_iterator.getNext())
-        print()
-    else:
-        print('fim')
-
-    print()
     print('='*15)
     print()
 
@@ -75,40 +54,8 @@ if __name__ == '__main__':
 
     nt_iterator = numbers_tree.createIterator()
 
-    if nt_iterator.hasMore():
+    while nt_iterator.hasMore():
         print(nt_iterator.getNext())
         print()
-    else:
-        print('fim')
-
-    if nt_iterator.hasMore():
-        print(nt_iterator.getNext())
-        print()
-    else:
-        print('fim')
-
-    if nt_iterator.hasMore():
-        print(nt_iterator.getNext())
-        print()
-    else:
-        print('fim')
-
-    if nt_iterator.hasMore():
-        print(nt_iterator.getNext())
-        print()
-    else:
-        print('fim')
-
-    if nt_iterator.hasMore():
-        print(nt_iterator.getNext())
-        print()
-    else:
-        print('fim')
-
-    if nt_iterator.hasMore():
-        print(nt_iterator.getNext())
-        print()
-    else:
-        print('fim')
 
     print(nt_iterator.getTree())

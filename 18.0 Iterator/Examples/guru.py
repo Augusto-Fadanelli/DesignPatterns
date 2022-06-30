@@ -1,4 +1,4 @@
-# Scrip retirado de https://refactoring.guru/pt-br/design-patterns/iterator/python/example
+# Script retirado de https://refactoring.guru/pt-br/design-patterns/iterator/python/example
 
 from __future__ import annotations
 from collections.abc import Iterable, Iterator
@@ -7,7 +7,7 @@ from typing import Any, List
 
 class AlphabeticalOrderIterator(Iterator):
     _position: int = None
-    _reverse: boll = False
+    _reverse: bool = False
 
     def __init__(self, collection: WordsCollection, reverse: bool = False):
         self._collection = collection

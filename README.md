@@ -1,6 +1,6 @@
 # Design Patterns
 
-<img align="left" width="450" src="https://github.com/Augusto-Fadanelli/DesignPatterns/blob/main/docs/pattern-doc.jpg">
+<img align="left" width="380" src="https://github.com/Augusto-Fadanelli/DesignPatterns/blob/main/docs/pattern-doc.jpg">
 
 <p align="justify">Design patterns são estruturas de código abstratas para resolver problemas genéricos. Geralmente quando bem aplicados, ajudam na compreensão do código, diminuição da complexidade, manutenção e gerenciamento futuro.</p>
 

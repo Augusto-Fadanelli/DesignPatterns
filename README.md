@@ -2,7 +2,7 @@
 
 <img align="left" width="380" src="https://github.com/Augusto-Fadanelli/DesignPatterns/blob/main/docs/pattern-doc.jpg">
 
-<p align="justify">Design patterns são estruturas de código abstratas para resolver problemas genéricos. Geralmente quando bem aplicados, ajudam na compreensão do código, diminuição da complexidade, manutenção e gerenciamento futuro.</p>
+<p align="justify">Design patterns são estruturas de código abstratas para resolver problemas genéricos. Geralmente quando bem aplicados ajudam na compreensão do código, diminuição da complexidade, manutenção e gerenciamento futuro.</p>
 
 <p align="justify">"Os padrões de projeto tornam mais fácil reutilizar projetos e arquiteturas bem sucedidas. Expressar técnicas testadas e aprovadas as torna mais acessíveis para os desenvolvedores de novos sistemas. Os padrões de projeto ajudam a escolher alternativas de projeto que tornam um sistema reutilizável e a evitar alternativas que comprometam a reutilização. Os padrões de projeto podem melhorar a documentação e a manutenção de sistemas ao fornecer uma especificação explícita de interações de classes e objetos e o seu objetivo subjacente. Em suma, ajudam um projetista a obter mais rapidamente um projeto adequado." - Padrões de Projeto (Gof)</p>
 
@@ -12,7 +12,7 @@
 
 Se preocupam em como controlar o processo de criação de instâncias de classes.
 
-  * [Abstract Method](https://github.com/Augusto-Fadanelli/DesignPatterns/tree/main/design_patterns/creational/Abstract%20Factory/)
+  * [Abstract Factory](https://github.com/Augusto-Fadanelli/DesignPatterns/tree/main/design_patterns/creational/Abstract%20Factory/)
     > "Fornece uma interface para criação de famílias de objetos relacionados ou dependentes sem especificar suas classes concretas." - Padrões de Projeto (Gof)
 
   * Builder

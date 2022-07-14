@@ -95,6 +95,25 @@ Descreve os padrões de comunicação entre os objetos e como as classes e objet
 
 #
 ### Rodando os Scripts em Python
+  * Definir versão do python
+    ````
+    $ pyenv install 3.10.5
+    $ pyenv local 3.10.5
+    ````
+
+  * Clonar repositório
+    ````
+    $ git clone https://github.com/Augusto-Fadanelli/DesignPatterns.git
+    ````
+
+  * Configurar ambiente virtual
+    ````
+    $ cd DesignPatterns
+    $ python -m venv .venv
+    $ source .venv/bin/activate
+    $ pip install --upgrade pip
+    $ pip install -r requirements.txt
+    ````
 
 #
 ### Para desenvolvedores do Projeto

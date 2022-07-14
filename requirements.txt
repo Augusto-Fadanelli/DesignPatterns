@@ -1,0 +1,5 @@
+requests ~= 2.28
+pygame ~= 2.1 # Flyweight
+tk ~= 0.1 # Memento
+ttkthemes ~= 3.2 # Memento
+

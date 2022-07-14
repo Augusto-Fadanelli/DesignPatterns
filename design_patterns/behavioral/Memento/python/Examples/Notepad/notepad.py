@@ -1,5 +1,3 @@
-# pip install ttkthemes
-
 import tkinter as tk
 from tkinter import ttk, Text
 from ttkthemes import ThemedTk

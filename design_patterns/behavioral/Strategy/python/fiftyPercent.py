@@ -1,5 +1,5 @@
-
 from discountStrategy import DiscountStrategy
+
 
 class FiftyPercent(DiscountStrategy):
     def calculate(self, value: float) -> float:

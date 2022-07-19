@@ -1,9 +1,8 @@
-
-from order import Order
-from twentyPercent import TwentyPercent
+from customDiscount import CustomDiscount
 from fiftyPercent import FiftyPercent
 from noDiscount import NoDiscount
-from customDiscount import CustomDiscount
+from order import Order
+from twentyPercent import TwentyPercent
 
 vintao = TwentyPercent()
 cincao = FiftyPercent()

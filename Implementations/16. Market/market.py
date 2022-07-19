@@ -6,6 +6,7 @@ class Item:
     def __repr__(self):
         return f'Item(nome={self.name}, valor={self.value})'
 
+
 class Cart:
     def __init__(self):
         self.items = []

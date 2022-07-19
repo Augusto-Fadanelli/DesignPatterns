@@ -1,6 +1,7 @@
 # Script retirado de https://refactoring.guru/pt-br/design-patterns/iterator/python/example
 
 from __future__ import annotations
+
 from collections.abc import Iterable, Iterator
 from typing import Any, List
 

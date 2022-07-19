@@ -1,9 +1,10 @@
-
 from typing import Dict
+
 from icommand import ICommand
 
+
 class RemoteController:
-    """ Invoker """
+    """Invoker"""
 
     def __init__(self) -> None:
         self._buttons: Dict[str, ICommand] = {}
@@ -18,4 +19,3 @@ class RemoteController:
     def button_undo(self, name: str) -> None:
         if name in self._buttons:
             self._buttons[name].undo()
-

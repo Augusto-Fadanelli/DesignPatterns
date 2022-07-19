@@ -1,7 +1,8 @@
-class Article():
-    '''
+class Article:
+    """
     Matéria da revista.
-    '''
+    """
+
     def __init__(self, title: str, author: str, content: str):
         self._title = title
         self._author = author

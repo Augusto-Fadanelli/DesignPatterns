@@ -1,13 +1,13 @@
 # pip install BinaryTree
 
-from typing import List, Any
 from random import randint
+from typing import Any, List
 
 from binarytree import Node, build
-
-from iterator_interface import Iterator
 from collection_interface import IterableCollection
+from iterator_interface import Iterator
 from iterators import ListIterator, TreeIterator
+
 
 class ListCollection(IterableCollection):
     def __init__(self):
@@ -42,7 +42,7 @@ if __name__ == '__main__':
         print(wl_iterator.getNext())
         print()
 
-    print('='*15)
+    print('=' * 15)
     print()
 
     numbers_tree = TreeCollection()

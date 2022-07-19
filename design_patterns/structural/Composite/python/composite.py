@@ -1,6 +1,8 @@
 from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from typing import List
+
 
 class Component(ABC):
     @property
@@ -24,9 +26,11 @@ class Component(ABC):
     def operation(self) -> str:
         pass
 
+
 class Leaf(Component):
     def operation(self) -> str:
         return 'Leaf'
+
 
 class Composite(Component):
     def __init__(self):
@@ -50,14 +54,17 @@ class Composite(Component):
 
         return f"Branch({'+'.join(results)})"
 
+
 def client_code(component: Component):
     print(f'RESULT: {component.operation()}')
+
 
 def client_code2(component1: Component, component2: Component):
     if component1.is_composite():
         component1.add(component2)
 
     print(f'RESULT: {component1.operation()}')
+
 
 if __name__ == '__main__':
     simple = Leaf()
@@ -81,5 +88,7 @@ if __name__ == '__main__':
     client_code(tree)
     print()
 
-    print("Client: I don't need to check the components classes even when managing the tree:")
+    print(
+        "Client: I don't need to check the components classes even when managing the tree:"
+    )
     client_code2(tree, simple)

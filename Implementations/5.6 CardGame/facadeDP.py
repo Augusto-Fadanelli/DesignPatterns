@@ -1,16 +1,18 @@
 from heavenlyBranch import *
 from humanBranch import *
-from supportBranch import *
+from landBranch import *
 from potionBranch import *
 from spellBranch import *
+from supportBranch import *
 from trapBranch import *
-from landBranch import *
+
 
 class Tree:
-    '''
+    """
     Docstring:
     Facade for Composite
-    '''
+    """
+
     def createHeavenlyBranch(self):
         magician = Magician()
         sorcerer = Sorcerer()

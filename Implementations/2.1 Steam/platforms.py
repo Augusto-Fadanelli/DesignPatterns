@@ -1,7 +1,13 @@
 from bridge import *
 
+
 class PC(Platform):
-    def __init__(self, implementation:Product, external_memory:int, operational_system:str):
+    def __init__(
+        self,
+        implementation: Product,
+        external_memory: int,
+        operational_system: str,
+    ):
         self.implementation = implementation
         self.external_memory = external_memory
         self.operational_system = operational_system
@@ -15,15 +21,24 @@ class PC(Platform):
             return False
 
         if checkPlatform():
-            print(f'Playing {self.implementation.name} in Desktop {self.operational_system}')
+            print(
+                f'Playing {self.implementation.name} in Desktop {self.operational_system}'
+            )
         else:
             print('Error! Unsupported platform.')
 
     def toggleFavorite(self):
         self.favorite = not self.favorite
 
+
 class Playstation(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
+    def __init__(
+        self,
+        implementation: Product,
+        external_memory: int,
+        model: str,
+        version: str,
+    ):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
@@ -39,7 +54,9 @@ class Playstation(Platform):
             return False
 
         if checkPlatform():
-            print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
+            print(
+                f'Playing {self.implementation.name} in {self.model} v.{self.version}'
+            )
         else:
             print('Error! Unsupported platform.')
 
@@ -49,8 +66,15 @@ class Playstation(Platform):
     def syncWithPsnPlus(self):
         self.psn_sync = True
 
+
 class Xbox(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
+    def __init__(
+        self,
+        implementation: Product,
+        external_memory: int,
+        model: str,
+        version: str,
+    ):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
@@ -66,7 +90,9 @@ class Xbox(Platform):
             return False
 
         if checkPlatform():
-            print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
+            print(
+                f'Playing {self.implementation.name} in {self.model} v.{self.version}'
+            )
         else:
             print('Error! Unsupported platform.')
 
@@ -76,8 +102,15 @@ class Xbox(Platform):
     def syncWithGamePass(self):
         self.gamepass_sync = True
 
+
 class Nintendo(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
+    def __init__(
+        self,
+        implementation: Product,
+        external_memory: int,
+        model: str,
+        version: str,
+    ):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
@@ -93,7 +126,9 @@ class Nintendo(Platform):
             return False
 
         if checkPlatform():
-            print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
+            print(
+                f'Playing {self.implementation.name} in {self.model} v.{self.version}'
+            )
         else:
             print('Error! Unsupported platform.')
 
@@ -103,8 +138,15 @@ class Nintendo(Platform):
     def toggleCloudSave(self):
         self.cloud_save = not self.cloud_save
 
+
 class SteamDeck(Platform):
-    def __init__(self, implementation:Product, external_memory:int, model:str, version:str):
+    def __init__(
+        self,
+        implementation: Product,
+        external_memory: int,
+        model: str,
+        version: str,
+    ):
         self.implementation = implementation
         self.external_memory = external_memory
         self.model = model
@@ -120,7 +162,9 @@ class SteamDeck(Platform):
             return False
 
         if checkPlatform():
-            print(f'Playing {self.implementation.name} in {self.model} v.{self.version}')
+            print(
+                f'Playing {self.implementation.name} in {self.model} v.{self.version}'
+            )
         else:
             print('Error! Unsupported platform.')
 
@@ -129,4 +173,3 @@ class SteamDeck(Platform):
 
     def toggleFavorite(self):
         self.favorite = not self.favorite
-

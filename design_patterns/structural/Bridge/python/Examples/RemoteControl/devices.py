@@ -1,5 +1,6 @@
 from bridge import Device
 
+
 class TV(Device):
     def getName(self):
         return self.name
@@ -16,6 +17,7 @@ class TV(Device):
     def getVolume(self):
         return self.volume
 
+
 class Radio(Device):
     def getName(self):
         return self.name
@@ -31,6 +33,7 @@ class Radio(Device):
 
     def getVolume(self):
         return self.volume
+
 
 class Light(Device):
     def getName(self):

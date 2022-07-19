@@ -1,12 +1,21 @@
 from abc import ABC, abstractmethod
 
+
 class Product(ABC):
-    '''
+    """
     Docstring:
     Interface Implementor
-    '''
+    """
+
     @abstractmethod
-    def __init__(self, name:str, description:str, price:float, size:int, platforms='all'): #size in MB
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        price: float,
+        size: int,
+        platforms='all',
+    ):   # size in MB
         pass
 
     @abstractmethod
@@ -17,12 +26,14 @@ class Product(ABC):
     def getPrice(self) -> float:
         pass
 
+
 class Platform(ABC):
-    '''
+    """
     Docstring:
     Classe Abstraction
-    '''
-    def __init__(self, implementation:Product, external_memory:int):
+    """
+
+    def __init__(self, implementation: Product, external_memory: int):
         self.implementation = implementation
         self.external_memory = external_memory
 

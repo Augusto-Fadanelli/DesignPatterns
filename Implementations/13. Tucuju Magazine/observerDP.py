@@ -1,13 +1,16 @@
 from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from typing import List
 
 from magazineArticles import Article
 
+
 class Publisher(ABC):
-    '''
+    """
     Subject
-    '''
+    """
+
     @abstractmethod
     def attachSubscriber(self, subscriber: Subscriber) -> None:
         pass
@@ -32,10 +35,12 @@ class Publisher(ABC):
     def getArticles(self) -> List[Article]:
         pass
 
-class Subscriber():
-    '''
+
+class Subscriber:
+    """
     Observer
-    '''
+    """
+
     _policy_articles: List[Article] = []
     _science_articles: List[Article] = []
 
@@ -46,14 +51,16 @@ class Subscriber():
         return self._user_name
 
     def getArticles(self):
-        #return self._articles
+        # return self._articles
         article_titles = []
         if len(self._policy_articles) > 0:
             for article in self._policy_articles:
                 article_titles.append(article.getTitle())
         if len(self._science_articles) > 0:
             for article in self._science_articles:
-                if not article.getTitle() in article_titles: # Impede que títulos repetidos sejam mostrados
+                if (
+                    not article.getTitle() in article_titles
+                ):   # Impede que títulos repetidos sejam mostrados
                     article_titles.append(article.getTitle())
 
         return article_titles

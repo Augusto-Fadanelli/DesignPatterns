@@ -1,14 +1,17 @@
-from facadeDP import *
 from compositeDP import *
+from facadeDP import *
+
 
 def showBranch(component: Component):
     print(f'RESULT: {component.operation()}')
+
 
 def addLeaf(component1: Component, component2: Component):
     if component1.is_composite():
         component1.add(component2)
 
     print(f'RESULT: {component1.operation()}')
+
 
 if __name__ == '__main__':
     root = Composite()
@@ -62,5 +65,5 @@ if __name__ == '__main__':
     showBranch(root)
     print()
 
-    #Adicionar Leaf direto na Tree
-    #addLeaf(tree, simple)
+    # Adicionar Leaf direto na Tree
+    # addLeaf(tree, simple)

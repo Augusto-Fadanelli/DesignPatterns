@@ -1,5 +1,5 @@
-
 from abc import ABC, abstractmethod
+
 
 class Game(ABC):
     """Class Abstrata"""
@@ -11,7 +11,7 @@ class Game(ABC):
         self.secondLevel()
 
     def soundtrack(self):
-        print("Trilha dos vingadores começa")
+        print('Trilha dos vingadores começa')
 
     @abstractmethod
     def firstLevel(self):

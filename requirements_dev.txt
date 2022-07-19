@@ -1,0 +1,8 @@
+-r requirements.txt
+
+safety
+blue
+isort
+prospector
+pytest
+

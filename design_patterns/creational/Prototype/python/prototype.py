@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
 import time
+from abc import ABC, abstractmethod
 
 
 class Prototype(ABC):
@@ -9,7 +9,7 @@ class Prototype(ABC):
         self.age = None
         self.defense = None
         self.attack = None
-        
+
     @abstractmethod
     def clone(self):
-        pass  
+        pass

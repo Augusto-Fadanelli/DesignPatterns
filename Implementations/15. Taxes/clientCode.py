@@ -1,10 +1,10 @@
 # Algoritmo baseado em https://youtu.be/5PRG7rT2dcU
 
-'''
+"""
 O algoritmo implementa um sistema de taxas de produtos que se alteram de acordo com o país.
-'''
+"""
 
-#from categories import *
+# from categories import *
 from countryTaxes import *
 
 if __name__ == '__main__':
@@ -16,11 +16,7 @@ if __name__ == '__main__':
     brazil_taxes = BRTax()
     united_state_taxes = USTax()
 
-    cart = [book,
-            food,
-            smartphone,
-            computer
-            ]
+    cart = [book, food, smartphone, computer]
 
     total_price = 0
     total_price_with_taxes_brazil = 0
@@ -28,8 +24,14 @@ if __name__ == '__main__':
     for iten in cart:
         total_price += iten.price
         total_price_with_taxes_brazil += iten.getPriceWithTaxes(brazil_taxes)
-        total_price_with_taxes_united_states += iten.getPriceWithTaxes(united_state_taxes)
+        total_price_with_taxes_united_states += iten.getPriceWithTaxes(
+            united_state_taxes
+        )
 
     print(f'Total: {total_price}')
-    print(f'total price with taxes Brazil: {round(total_price_with_taxes_brazil, 2)}')
-    print(f'total price with taxes United States: {round(total_price_with_taxes_united_states, 2)}')
+    print(
+        f'total price with taxes Brazil: {round(total_price_with_taxes_brazil, 2)}'
+    )
+    print(
+        f'total price with taxes United States: {round(total_price_with_taxes_united_states, 2)}'
+    )

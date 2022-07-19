@@ -1,8 +1,9 @@
 from cmemento import *
 from obj import Snake
 
-class Caretaker():
-    def __init__(self, originator:Snake):
+
+class Caretaker:
+    def __init__(self, originator: Snake):
         self._mementos = []
         self._originator = originator
 

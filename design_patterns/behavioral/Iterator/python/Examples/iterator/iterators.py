@@ -1,8 +1,8 @@
-from typing import List, Any
+from typing import Any, List
 
 from binarytree import Node
-
 from iterator_interface import Iterator
+
 
 class ListIterator(Iterator):
     def __init__(self, collection: List[Any]):

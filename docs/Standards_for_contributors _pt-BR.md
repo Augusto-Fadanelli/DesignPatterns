@@ -1,56 +1,98 @@
 # Standards for contributors
-  * Os design patterns serão armazenados em pastas com a sintaxe: `número na ordem em que foi pedido pelo professor`.0 `Nome do  padrão`
-    * Implementações simples utilizando apenas um design pattern ficarão dentro  da pasta do design pattern em `Examples/pasta com o nome do exemplo/`
-  * As implementações conjuntas serão armazenados em `Implementations` em pastas com a sintaxe: `número do design pattern utilizado`.`número do outro design pattern utilizado` `Nome da implementação`
+  * O projeto segue os padrões da [pep-8](https://peps.python.org/pep-0008/) e [pep-257](https://peps.python.org/pep-0257/)
 
-  * Nomes de classes sempre começam com letra maiúscula
-    * Se houver mais de uma palavra, a próxima palavra também começa com letra maiúscula
-      * Exemplo: `ElefanteRosaVoador`
+  * Pré-requisitos:
+    * git
+    * make
+    * [pyenv](https://github.com/pyenv/pyenv)
+    * [pip](https://pip.pypa.io/en/stable/installation/)
 
-  * Nomes de métodos e funções sempre começam com letra minúscula
-    * Se houver mais de uma palavra, as palavras seguintes começam com letra maiúscula
-    * Exemplo: `elefanteRosaVoador`
-
-  * Nomes de variáveis sempre começam com letra minúscula
-    * Se houver mais de uma palavra, serão separadas por `_` e começarão com letra minúscula
-    * Exemplo: `elefante_rosa_voador`
-
-  * Classes não autodescritivas ou complexas sempre devem ter uma docstring no início explicando a finalidade, informações pertinentes e o funcionamento da mesma
+  * Clonar repositório:
     ````
-    class ElefanteRosaVoador
-    '''
-    Docstring:
-    blablabla
-    '''
-    def __init__(self):
-    ...
+    $ git clone https://github.com/Augusto-Fadanelli/DesignPatterns.git
     ````
 
-  * Deve-se específicar o tipo dos parâmetros de métodos e funções, menos nos casos de o método for herdado de outra classe e na classe mãe já houver sido específicado o seu tipo
+  * Instalar (Execute fora do venv):
     ````
-    def setNameElefante(self, name: str):
-        self.name = name
+    $ cd DesignPatterns
+    $ make dev_install
     ````
-    ````
-    class Mae():
-        def setInfo(self, nome: str, idade: int):
-            self.nome = nome
-            self.idade = idade
 
-    class Filha(Mae):
-        def setInfo(self, nome, idade, cpf: int)
-            self.nome = nome
-            self.idade = idade
-            self.cpf = cpf
+  * Para entrar/sair do ambiente virtual:
+    ````
+    $ source .venv/bin/activate
+    $ deactivate
+    ````
+
+  * Configurar pre-commit
+    * Criar arquivo e dar permissão de execução
+      ````
+      $ touch .git/hooks/pre-commit
+      $ chmod +x .git/hooks/pre-commit
+      ````
+
+    * Edite o arquivo `.git/hooks/pre-commit`
+      ````
+      IFS=
+      pip_out=$(pip list -o 2> /dev/null)
+
+      if [ $(echo $pip_out | wc -l) -ge 1 ]; then
+          echo "Existem pacotes desatualizados (pip list -o):"
+          echo $pip_out
+      fi
+
+      safety_out=$(safety check -r requirements.txt --full-report)
+      safety_filter=$($safety_out |& grep "Affected" | wc -l)
+
+      if [ $safety_filter -ge 1 ]; then
+          echo "Commit não efetuado, vulnerabilidade encontrada"
+          echo $safety_out
+          exit 1
+      fi
+
+      make lint
+      make test
+      ````
+
+  * Verifica se o código está formatado corretamente
+    ````
+    $ make lint
+    ````
+
+  * Testa o código
+    ````
+    $ make test
+    ````
+
+  * Verifica problemas de segurança relacionados aos pacotes em requirements.txt
+    ````
+    $ make sec
+    ````
+
+  * Formata os códigos automáticamente de acordo com a [pep-8](https://peps.python.org/pep-0008/) e [pep-257](https://peps.python.org/pep-0257/)
+    ````
+    $ make format
+    ````
+
+# Formatação Manual 
+  * Deve-se específicar o tipo dos parâmetros de métodos e funções, menos nos casos de o método for herdado de outra classe e na superclasse já houver sido específicado o seu tipo
+    ````
+    def square(self, number: int):
+        return number * number
+    ````
+    ````
+    class Animal():
+        def setInfo(self, name: str, age: int):
+            pass
+
+    class Bird(Animal):
+        def setInfo(self, name, age, weight: float)
+            pass
     ````
 
   * Métodos abstratos que retornam um valor devem possuir uma function annotation especificando o tipo do valor retornado
     ````
     @abstractmethod
-    def getElefanteRosaVoador(self) -> Elefante:
-        pass
-
-    @abstractmethod
-    def getNameElefante(self) -> str:
-        pass
+    def square(self, number: int) -> int:
+        return number * number
     ````

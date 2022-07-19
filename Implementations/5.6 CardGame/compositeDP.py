@@ -1,6 +1,8 @@
 from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from typing import List
+
 
 class Component(ABC):
     @property
@@ -24,9 +26,11 @@ class Component(ABC):
     def operation(self) -> str:
         pass
 
+
 class Leaf(Component):
     def operation(self, name='Leaf') -> str:
         return f'L:{name}'
+
 
 class Composite(Component):
     def __init__(self):

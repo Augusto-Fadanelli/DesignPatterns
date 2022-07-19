@@ -1,8 +1,8 @@
-
 from discountStrategy import DiscountStrategy
 
+
 class Order:
-    """ Contexto """
+    """Contexto"""
 
     def __init__(self, total: float, discount: DiscountStrategy) -> None:
         self._total = total

@@ -1,8 +1,9 @@
-'''
+"""
 Calcula taxas para cada país.
 Obs.: Todos os valores são hipotéticos.
-'''
+"""
 from categories import *
+
 
 class BRTax(Protocol):
     def calculateTaxesForBook(self, book: Book):
@@ -20,6 +21,7 @@ class BRTax(Protocol):
     def calculateTaxesForComputer(self, computer: Computer):
         # 55% de taxa
         return computer.price + computer.price * 0.55
+
 
 class USTax(Protocol):
     def calculateTaxesForBook(self, book: Book):

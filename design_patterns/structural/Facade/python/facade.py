@@ -5,12 +5,14 @@ class Subsystem1:
     def operationN(self):
         return 'Subsystem1: Go!'
 
+
 class Subsystem2:
     def operation1(self):
         return 'Subsystem2: Get ready!'
 
     def operationZ(self):
         return 'Subsystem2: Fire!'
+
 
 class Facade:
     def __init__(self, subsystem1: Subsystem1, subsystem2: Subsystem2):
@@ -27,8 +29,10 @@ class Facade:
         results.append(self._subsystem2.operationZ())
         return '\n'.join(results)
 
+
 def clientCode(f: Facade):
     print(f.operation())
+
 
 if __name__ == '__main__':
     subsystem1 = Subsystem1()

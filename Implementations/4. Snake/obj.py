@@ -1,12 +1,14 @@
-import pygame
-from pygame.locals import *
 from random import randint
+
+import pygame
 from cmemento import *
+from pygame.locals import *
 
 # Variáveis globais
 g_snake_size = 30
 
-class Portal():
+
+class Portal:
     def __init__(self):
         self.pos_x = []
         self.pos_y = []
@@ -38,10 +40,11 @@ class Portal():
 
     def closePortal(self):
         if len(self.pos_x) > 0:
-            del self.pos_x[len(self.pos_x)-1]
-            del self.pos_y[len(self.pos_y)-1]
+            del self.pos_x[len(self.pos_x) - 1]
+            del self.pos_y[len(self.pos_y) - 1]
 
-class Food():
+
+class Food:
     def __init__(self):
         self.eat_sound = pygame.mixer.Sound('eat_sound.wav')
         self.pos_x = 0
@@ -67,7 +70,8 @@ class Food():
     def playSong(self):
         self.eat_sound.play()
 
-class Snake():
+
+class Snake:
     def __init__(self):
         self.teleport_sound = pygame.mixer.Sound('teleport_sound.wav')
         self.rect_size = 0  # Tamanho de cada quadrado que compõe a snake
@@ -76,7 +80,7 @@ class Snake():
         self.snake_speed = 0
         self.control_x = 0
         self.control_y = 0
-        self.snake_size = g_snake_size # Tamanho inicial da snake
+        self.snake_size = g_snake_size   # Tamanho inicial da snake
         self.is_dead = False
 
         self.snake_list = []
@@ -95,10 +99,10 @@ class Snake():
 
     def originator_start(self):
         # Originator
-        self._state = [self.snake_x, self.snake_y] # Posição da snake
+        self._state = [self.snake_x, self.snake_y]   # Posição da snake
         self.save(self._state[0], self._state[1])
 
-    def setIsDead(self, dead:bool):
+    def setIsDead(self, dead: bool):
         self.is_dead = dead
 
     def getIsDead(self):
@@ -116,13 +120,13 @@ class Snake():
     def getSize(self):
         return self.snake_size
 
-    def setSnakeList(self, snake_list:list):
+    def setSnakeList(self, snake_list: list):
         self.snake_list = snake_list
 
     def addToSnakeList(self, a):
         self.snake_list.append(a)
 
-    def setHeadList(self, head_list:list):
+    def setHeadList(self, head_list: list):
         self.head_list = head_list
 
     def getHeadList(self):
@@ -163,4 +167,8 @@ class Snake():
         if len(self.snake_list) > self.snake_size:
             del self.snake_list[0]
         for pos in self.snake_list:
-            pygame.draw.rect(screen, (0,255,0), (pos[0], pos[1], self.rect_size, self.rect_size))
+            pygame.draw.rect(
+                screen,
+                (0, 255, 0),
+                (pos[0], pos[1], self.rect_size, self.rect_size),
+            )

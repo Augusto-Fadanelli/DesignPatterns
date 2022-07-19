@@ -1,10 +1,9 @@
-
 from game import Game
 
-class NormalMode(Game):
 
+class NormalMode(Game):
     def firstLevel(self):
-        print("O carro precisa abastecer uma vez")
+        print('O carro precisa abastecer uma vez')
 
     def secondLevel(self):
-        print("Os carros estão na mesma velocidade")
+        print('Os carros estão na mesma velocidade')

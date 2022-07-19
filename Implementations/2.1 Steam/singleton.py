@@ -1,6 +1,7 @@
 from bridge import Product
 
-class Login():
+
+class Login:
     __instance = None
 
     @staticmethod
@@ -9,8 +10,7 @@ class Login():
             Login('None', 'None', 'None', 'None')
         return Login.__instance
 
-
-    def __init__(self, name:str, cpf:str, email:str, password:str):
+    def __init__(self, name: str, cpf: str, email: str, password: str):
         if Login.__instance != None:
             print('Error! Login can only be instantiated once.')
         else:
@@ -23,12 +23,13 @@ class Login():
     def getName(self):
         return self.name
 
-    def checkPassword(self, passwd:str):
+    def checkPassword(self, passwd: str):
         if self.password == passwd:
             return True
         return False
 
-class Cart():
+
+class Cart:
     __instance = None
 
     @staticmethod
@@ -43,11 +44,11 @@ class Cart():
             self.amount = 0
             Cart.__instance = self
 
-    def addToCart(self, product:Product):
+    def addToCart(self, product: Product):
         self.items.append(product.getName())
         self.amount += product.getPrice()
 
-    def removeItem(self, product:Product):
+    def removeItem(self, product: Product):
         self.items.remove(product.getName())
         self.amount -= product.getPrice()
 
@@ -65,8 +66,3 @@ class Cart():
             return aux
         print('Canceled.')
         return
-
-
-
-
-

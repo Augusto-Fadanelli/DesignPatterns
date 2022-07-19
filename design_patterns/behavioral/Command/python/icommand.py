@@ -1,8 +1,8 @@
-
 from abc import ABC, abstractmethod
 
+
 class ICommand(ABC):
-    """ Interface de Comando """
+    """Interface de Comando"""
 
     @abstractmethod
     def execute(self):

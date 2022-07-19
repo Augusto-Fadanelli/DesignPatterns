@@ -1,11 +1,13 @@
 from abc import ABC, abstractmethod
 from datetime import datetime
 
+
 class Memento(ABC):
-    '''
+    """
     Docstring:
     Interface
-    '''
+    """
+
     @abstractmethod
     def getName(self) -> str:
         pass
@@ -13,6 +15,7 @@ class Memento(ABC):
     @abstractmethod
     def getDate(self) -> str:
         pass
+
 
 class ConcreteMemento(Memento):
     def __init__(self, state: str):
@@ -28,9 +31,11 @@ class ConcreteMemento(Memento):
     def getDate(self):
         return self._date
 
-class Originator():
+
+class Originator:
     _state = None
-    def __init__(self, state:str):
+
+    def __init__(self, state: str):
         self._state = state
         print(f'Originator: Initial state: {self._state}')
 
@@ -45,7 +50,8 @@ class Originator():
         self._state = memento.getState()
         print(f'Originator: State has changed to: {self._state}')
 
-class Caretaker():
+
+class Caretaker:
     def __init__(self, originator: Originator):
         self._mementos = []
         self._originator = originator
@@ -70,8 +76,9 @@ class Caretaker():
         for memento in self._mementos:
             print(memento.getName())
 
-if __name__ == "__main__":
-    originator = Originator("In a hole in the ground there lived a hobbit.")
+
+if __name__ == '__main__':
+    originator = Originator('In a hole in the ground there lived a hobbit.')
     caretaker = Caretaker(originator)
 
     caretaker.backup()
@@ -89,10 +96,10 @@ if __name__ == "__main__":
     print()
     caretaker.show_history()
 
-    print("\nClient: rollback!\n")
+    print('\nClient: rollback!\n')
     caretaker.undo()
 
-    print("\nClient: rollback again!\n")
+    print('\nClient: rollback again!\n')
     caretaker.undo()
 
     print()

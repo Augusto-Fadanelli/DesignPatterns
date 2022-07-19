@@ -1,10 +1,11 @@
 from abc import abstractmethod
+
 from chamaAPI import ConverterMoeda
-#from main import Menu
+
+# from main import Menu
 
 
-class adaptando():
-
+class adaptando:
     @abstractmethod
     def get_moedaInicial(self):
         return super().get_moedaInicial
@@ -23,7 +24,6 @@ class adaptandoVisualizacao(ConverterMoeda):
         return super().show_currencies()
 
 
-
-if __name__ == "__main__":
-    pessoa = ConverterMoeda("95cb7a414c4d5c073632") 
-    print(pessoa.transforme_currency("USD", 1, "BRL"))
+if __name__ == '__main__':
+    pessoa = ConverterMoeda('95cb7a414c4d5c073632')
+    print(pessoa.transforme_currency('USD', 1, 'BRL'))

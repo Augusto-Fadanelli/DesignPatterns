@@ -1,21 +1,24 @@
 from abc import ABC, abstractmethod
 
+
 class EventListener(ABC):
     @abstractmethod
     def update(self, filename):
         pass
 
+
 class LoggingListener(EventListener):
-    #_log: File
+    # _log: File
     _message: str
 
     def __init__(self, log_filename, message):
-        #self._log = File(log_filename)
+        # self._log = File(log_filename)
         self._message = message
 
     def update(self, filename):
-        #self._log.write(replace('%s', filename, message))
+        # self._log.write(replace('%s', filename, message))
         pass
+
 
 class EmailAlertsListener(EventListener):
     def __init__(self, email: str, message: str):
@@ -23,8 +26,9 @@ class EmailAlertsListener(EventListener):
         self._message = message
 
     def update(self, filename):
-        #system.email(self._email, replace('%s', filename, message))
+        # system.email(self._email, replace('%s', filename, message))
         pass
+
 
 class EventManager:
     _listeners = {}
@@ -43,9 +47,8 @@ class EventManager:
             print('deb 2:')
             self.print_listeners()
 
-
     def unsubscribe(self, event_type, listener: EventListener):
-        line = (self._listeners[event_type])
+        line = self._listeners[event_type]
         line.remove(listener)
         self._listeners.update({event_type: line})
 
@@ -57,16 +60,18 @@ class EventManager:
     def print_listeners(self):
         print(f'\t{self._listeners}')
 
+
 class Editor:
-    #_file: File
+    # _file: File
 
     def __init__(self):
         self.events = EventManager()
 
     def openFile(self, path):
-        #self._file = File(path)
-        #self.events.notify("open", file.name)
+        # self._file = File(path)
+        # self.events.notify("open", file.name)
         pass
+
 
 if __name__ == '__main__':
     a1 = EventManager()

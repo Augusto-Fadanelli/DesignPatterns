@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Implementor(ABC):
     @abstractmethod
     def operationImpA(self):
@@ -8,6 +9,7 @@ class Implementor(ABC):
     @abstractmethod
     def operationImpB(self):
         pass
+
 
 class Abstraction(ABC):
     def __init__(self, implementation: Implementor):
@@ -19,12 +21,14 @@ class Abstraction(ABC):
     def operationB(self):
         pass
 
+
 class RefinedAbstractionA(Abstraction):
     def __init__(self, implementation: Implementor):
         self.implementation = implementation
 
     def operationC(self):
         pass
+
 
 class RefinedAbstractionB(Abstraction):
     def __init__(self, implementation: Implementor):
@@ -33,12 +37,14 @@ class RefinedAbstractionB(Abstraction):
     def operationD(self):
         pass
 
+
 class ConcreteImplementorA(Implementor):
     def operationImpA(self):
         pass
 
     def operationImpB(self):
         pass
+
 
 class ConcreteImplementorB(Implementor):
     def operationImpA(self):
@@ -47,7 +53,7 @@ class ConcreteImplementorB(Implementor):
     def operationImpB(self):
         pass
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     imp = ConcreteImplementorA()
     abst = RefinedAbstractionA(imp)
-

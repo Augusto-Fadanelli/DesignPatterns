@@ -1,13 +1,14 @@
 from typing import List
 
-from observerDP import Publisher
-from observerDP import Subscriber
 from magazineArticles import Article
+from observerDP import Publisher, Subscriber
+
 
 class Policy(Publisher):
-    '''
+    """
     Gênero: Política.
-    '''
+    """
+
     _subscribers: List[Subscriber] = []
     _articles: List[Article] = []
     _genre = 'Policy'
@@ -16,7 +17,9 @@ class Policy(Publisher):
         # Verifica se o subscriber já existe na lista de subscribers
         for subs in self._subscribers:
             if subs == subscriber:
-                print(f'Error: {subscriber.getUserName()} has already been attached.')
+                print(
+                    f'Error: {subscriber.getUserName()} has already been attached.'
+                )
                 return
         self._subscribers.append(subscriber)
 
@@ -24,7 +27,9 @@ class Policy(Publisher):
         try:
             self._subscribers.remove(subscriber)
         except:
-            print(f'Error: {subscriber.getUserName()} is not in Policy subscribers.')
+            print(
+                f'Error: {subscriber.getUserName()} is not in Policy subscribers.'
+            )
 
     def notifySubscribers(self):
         for subscriber in self._subscribers:
@@ -34,15 +39,17 @@ class Policy(Publisher):
         # Verifica se o article já existe na lista de articles
         for art in self._articles:
             if art == article:
-                print(f'Error: {article.getTitle()} has already been attached.')
+                print(
+                    f'Error: {article.getTitle()} has already been attached.'
+                )
                 return
         self._articles.append(article)
-        self.notifySubscribers() # Notifica os inscritos que um novo artigo foi publicado
+        self.notifySubscribers()   # Notifica os inscritos que um novo artigo foi publicado
 
     def detachArticle(self, article: Article):
         try:
             self._articles.remove(article)
-            self.notifySubscribers() # Notifica os inscritos que um artigo foi removido
+            self.notifySubscribers()   # Notifica os inscritos que um artigo foi removido
         except:
             print(f'Error: {article.getTitle()} is not in policy genre.')
 

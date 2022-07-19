@@ -1,11 +1,13 @@
 from abc import ABC, abstractmethod
 from datetime import datetime
 
+
 class Memento(ABC):
-    '''
+    """
     Docstring:
     Interface
-    '''
+    """
+
     @abstractmethod
     def getName(self) -> str:
         pass
@@ -13,6 +15,7 @@ class Memento(ABC):
     @abstractmethod
     def getDate(self) -> str:
         pass
+
 
 class ConcreteMemento(Memento):
     def __init__(self, state: str):

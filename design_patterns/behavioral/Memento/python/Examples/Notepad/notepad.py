@@ -1,6 +1,8 @@
 import tkinter as tk
-from tkinter import ttk, Text
+from tkinter import Text, ttk
+
 from ttkthemes import ThemedTk
+
 
 class ConfigWindow(tk.Toplevel):
     def __init__(self, parent):
@@ -12,7 +14,9 @@ class ConfigWindow(tk.Toplevel):
         self.size_label = ttk.Label(self, text='Size:')
 
         self.font_combo = ttk.Combobox(self, values=['Arial', 'Hack', 'Times'])
-        self.size_combo = ttk.Combobox(self, values=['8', '10', '12', '14', '16', '18', '20'])
+        self.size_combo = ttk.Combobox(
+            self, values=['8', '10', '12', '14', '16', '18', '20']
+        )
         self.font_combo.set('Hack')
         self.size_combo.set('12')
 
@@ -24,6 +28,7 @@ class ConfigWindow(tk.Toplevel):
         self.size_label.pack(padx=10, pady=10)
         self.size_combo.pack(padx=10)
         self.apply.pack(padx=10, pady=10)
+
 
 class Window(ThemedTk):
     def __init__(self):
@@ -48,9 +53,11 @@ class Window(ThemedTk):
         file.menu.add_radiobutton(label='Open', value='Open')
         file.menu.add_radiobutton(label='Save', value='Save')
         file.menu.add_radiobutton(label='Save as...', value='Save as...')
-        file["menu"] = file.menu
+        file['menu'] = file.menu
 
-        config = ttk.Button(self.__frame_toolbar, text='Config', command=self.__open_config)
+        config = ttk.Button(
+            self.__frame_toolbar, text='Config', command=self.__open_config
+        )
         about = ttk.Button(self.__frame_toolbar, text='About')
 
         # Show
@@ -59,15 +66,22 @@ class Window(ThemedTk):
         about.grid(row=0, column=2, padx=10, pady=5)
 
     def __textBox(self):
-        #font = ConfigWindow(self).font_combo.get()
-        #size = int(ConfigWindow(self).size_combo.get())
-        self.textbox = Text(self.__frame_general, height=25, width=70, font=('Hack', 12), bg='#bac3cc')
+        # font = ConfigWindow(self).font_combo.get()
+        # size = int(ConfigWindow(self).size_combo.get())
+        self.textbox = Text(
+            self.__frame_general,
+            height=25,
+            width=70,
+            font=('Hack', 12),
+            bg='#bac3cc',
+        )
 
     def __show(self):
         # Show
         self.__frame_toolbar.pack()
         self.textbox.pack(padx=10, pady=10, fill='both', expand='yes')
         self.__frame_general.pack(fill='both', expand='yes')
+
 
 if __name__ == '__main__':
     window = Window()

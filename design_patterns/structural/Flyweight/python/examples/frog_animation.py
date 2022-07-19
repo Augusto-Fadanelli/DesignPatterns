@@ -1,10 +1,12 @@
 # Frog sprites de https://github.com/clear-code-projects/animation
 # pip install pygame
 
+import random
+from sys import exit
+
 import pygame
 from pygame.locals import *
-from sys import exit
-import random
+
 
 class frog(pygame.sprite.Sprite):
     def __init__(self, posX, posY):
@@ -22,7 +24,7 @@ class frog(pygame.sprite.Sprite):
         self.sprites.append(pygame.image.load('frog_sprites/attack_10.png'))
         self.current = 0
         self.image = self.sprites[self.current]
-        #self.image = pygame.transform.scale(self.image, (128*3, 64*3)) # Aumenta o tamanho da imagem
+        # self.image = pygame.transform.scale(self.image, (128*3, 64*3)) # Aumenta o tamanho da imagem
 
         self.rect = self.image.get_rect()
         self.rect.topleft = posX, posY
@@ -32,11 +34,13 @@ class frog(pygame.sprite.Sprite):
         if self.current >= len(self.sprites):
             self.current = 0
         self.image = self.sprites[int(self.current)]
-        #self.image = pygame.transform.scale(self.image, (128 * 3, 64 * 3))  # Aumenta o tamanho da imagem
+        # self.image = pygame.transform.scale(self.image, (128 * 3, 64 * 3))  # Aumenta o tamanho da imagem
+
 
 def objects(posX, posY):
     f = frog(posX, posY)
     return f
+
 
 if __name__ == '__main__':
     pygame.init()
@@ -56,7 +60,7 @@ if __name__ == '__main__':
 
     while True:
         clock.tick(30)
-        screen.fill((255,255,255))
+        screen.fill((255, 255, 255))
 
         for event in pygame.event.get():
             if event.type == QUIT:
